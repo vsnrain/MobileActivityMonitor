@@ -1,5 +1,5 @@
 //
-//  ProcessCell.h
+//  ProcessListCell.h
 //  Activity Monitor
 //
 //  Created by vsnRain on 26.11.2012.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProcessCell : UITableViewCell
+@interface ProcessListCell : UITableViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *pidLabel;
 @property (nonatomic, strong) IBOutlet UILabel *commLabel;
@@ -18,6 +18,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *thrLabel;
 @property (nonatomic, strong) IBOutlet UILabel *memLabel;
 
-@property (nonatomic, strong) UIView *bgView;
+@property (nonatomic, strong) IBOutlet UIImageView *procIcon;
 
 @end

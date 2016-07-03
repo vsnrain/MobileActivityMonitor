@@ -7,16 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ProcessCell.h"
+#import "ProcessListCell.h"
 #import "Engine.h"
-#import "HeaderView.h"
+#import "ProcessListHeaderView.h"
 #import "InfoViewController.h"
 
-@interface MainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface MainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate>
 
-@property (strong, nonatomic) HeaderView *headerView;
+@property (weak, nonatomic) IBOutlet UINavigationBar *topBar;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) ProcessListHeaderView *headerView;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *bottomControl;
 @property (strong, nonatomic) IBOutlet UIView *bottomView;
@@ -45,7 +46,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *activePrc;
 @property (weak, nonatomic) IBOutlet UILabel *inactivePrc;
 @property (weak, nonatomic) IBOutlet UILabel *freePrc;
-
 
 @property (weak, nonatomic) IBOutlet UILabel *pagesize;
 @property (weak, nonatomic) IBOutlet UILabel *physical;

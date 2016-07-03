@@ -1,14 +1,14 @@
 //
-//  HeaderView.m
+//  ProcessListHeaderView.m
 //  Activity Monitor
 //
 //  Created by vsnRain on 07/07/13.
 //  Copyright (c) 2013 vsnRain. All rights reserved.
 //
 
-#import "HeaderView.h"
+#import "ProcessListHeaderView.h"
 
-@implementation HeaderView{
+@implementation ProcessListHeaderView{
 }
 
 - (id)initWithFrame:(CGRect)frame

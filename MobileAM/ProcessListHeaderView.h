@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 //#import "MainViewController.h"
 
-@interface HeaderView : UIView
+@interface ProcessListHeaderView : UIView
 
 @property char sortType;
 //@property MainViewController *delegate;

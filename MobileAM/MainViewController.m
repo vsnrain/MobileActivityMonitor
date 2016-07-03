@@ -29,25 +29,29 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+
+    self.topBar.delegate = self;
+    self.topBar.topItem.title = @"Activity Monitor";
+    
+    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"ProcessListCell" bundle:nil] forCellReuseIdentifier:@"ProcessListCellID"];
     
     self.bottomControl.selectedSegmentIndex = 0;
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg@2x.png"]];
     
     processList = [[NSArray alloc] init];
     
-    self.headerView = [[[NSBundle mainBundle] loadNibNamed:@"HeaderView-iPad" owner:self options:nil] objectAtIndex:0];
+    self.headerView = [[[NSBundle mainBundle] loadNibNamed:@"ProcessListHeaderView" owner:self options:nil] objectAtIndex:0];
     self.headerView.sortType = 'P';
     
-    self.bottomView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg2@2x.png"]];
     [self.bottomView addSubview: self.log];
     [self.bottomView addSubview: self.cpuView];
     [self.bottomView addSubview: self.memView];
     
-    //self.cpuView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg2@2x.png"]];
     self.cpuView.backgroundColor = [UIColor clearColor];
     self.cpuView.hidden = NO;
     
-    //self.memView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg2@2x.png"]];
     self.memView.backgroundColor = [UIColor clearColor];
     self.memView.frame = CGRectMake(0, 0, 800, 157);
     self.memView.hidden = YES;
@@ -62,60 +66,73 @@
     updateTimer = [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(refresh) userInfo:nil repeats:NO];
 }
 
+- (UIBarPosition) positionForBar:(id <UIBarPositioning>)bar {
+    return UIBarPositionTopAttached;
+}
+
 //////////////////////////////////////////////////// TABLEVIEW ///////////////////////////////////////////////////////////////
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    ProcessListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProcessListCellID"];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(ProcessListCell *)cell forRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    
+    if(indexPath.row%2==0) cell.contentView.backgroundColor = [UIColor whiteColor];
+    else cell.contentView.backgroundColor = [UIColor colorWithRed:241/255.f green:245/255.f blue:249/255.f alpha:1];
+    
+    cell.pidLabel.text = @"12425";
+    cell.commLabel.text = @"test";
+    
+    /*
+     //cell.pidLabel.text = [[[processList objectAtIndex:indexPath.row] objectForKey:@"PID"] stringValue];
+     //cell.commLabel.text = [[processList objectAtIndex:indexPath.row] objectForKey:@"COMM"];
+     
+     int tmpn;
+     NSString *tmps;
+     
+     tmpn = [[[processList objectAtIndex:indexPath.row] objectForKey:@"UID"] intValue];
+     tmps = [NSString stringWithUTF8String:user_from_uid(tmpn, NULL)];
+     cell.userLabel.text = [NSString stringWithFormat:@"%@ (%d)", tmps, tmpn];
+     
+     tmpn = [[[processList objectAtIndex:indexPath.row] objectForKey:@"GID"] intValue];
+     tmps = [NSString stringWithUTF8String:group_from_gid(tmpn, NULL)];
+     cell.groupLabel.text = [NSString stringWithFormat:@"%@ (%d)", tmps, tmpn];
+     
+     cell.cpuLabel.text = [NSString stringWithFormat:@"%.2f", [[[processList objectAtIndex:indexPath.row] objectForKey:@"TOT_CPU"] floatValue]];
+     [[[processList objectAtIndex:indexPath.row] objectForKey:@"TOT_CPU"] stringValue];
+     cell.thrLabel.text = [[[processList objectAtIndex:indexPath.row] objectForKey:@"THREAD_COUNT"] stringValue];
+     cell.memLabel.text = [NSString stringWithFormat:@"%.3f MB  ", [[[processList objectAtIndex:indexPath.row] objectForKey:@"RES_SIZE"] intValue]/(float)1048576 ];
+     */
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return processList.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    ProcessCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProcessCellID"];
-    
-    if (cell == nil) {
-        cell = [[ProcessCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProcessCellID"];
-    }
-    
-    if(indexPath.row%2==0) cell.contentView.backgroundColor = [UIColor whiteColor];
-    else cell.contentView.backgroundColor = [UIColor colorWithRed:241/255.f green:245/255.f blue:249/255.f alpha:1];
-    
-    cell.pidLabel.text = [[[processList objectAtIndex:indexPath.row] objectForKey:@"PID"] stringValue];
-    cell.commLabel.text = [[processList objectAtIndex:indexPath.row] objectForKey:@"COMM"];
-    
-    int tmpn;
-    NSString *tmps;
-    
-    tmpn = [[[processList objectAtIndex:indexPath.row] objectForKey:@"UID"] intValue];
-    tmps = [NSString stringWithUTF8String:user_from_uid(tmpn, NULL)];
-    cell.userLabel.text = [NSString stringWithFormat:@"%@ (%d)", tmps, tmpn];
-    
-    tmpn = [[[processList objectAtIndex:indexPath.row] objectForKey:@"GID"] intValue];
-    tmps = [NSString stringWithUTF8String:group_from_gid(tmpn, NULL)];
-    cell.groupLabel.text = [NSString stringWithFormat:@"%@ (%d)", tmps, tmpn];
-    
-    cell.cpuLabel.text = [NSString stringWithFormat:@"%.2f", [[[processList objectAtIndex:indexPath.row] objectForKey:@"TOT_CPU"] floatValue]];
-    [[[processList objectAtIndex:indexPath.row] objectForKey:@"TOT_CPU"] stringValue];
-    cell.thrLabel.text = [[[processList objectAtIndex:indexPath.row] objectForKey:@"THREAD_COUNT"] stringValue];
-    cell.memLabel.text = [NSString stringWithFormat:@"%.3f MB  ", [[[processList objectAtIndex:indexPath.row] objectForKey:@"RES_SIZE"] intValue]/(float)1048576 ];
-    
-    
-    return cell;
+    return 50;
+    //return processList.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return  34.0;
 }
 
--(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return  34.0;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    return self.headerView;
+    if (section == 0) {
+        return self.headerView;
+    }
+    
+    return nil;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
