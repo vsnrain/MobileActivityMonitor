@@ -1,0 +1,8 @@
+Package: com.vsnrain.mobileam
+Name: MobileAM
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: Activity Monitor
+Maintainer: vsnRain
+Author: vsnRain
+Section: Utilities

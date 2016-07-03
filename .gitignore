@@ -9,3 +9,7 @@ profile
 
 *.pbxuser
 !default.pbxuser
+
+.theos
+Staging
+Packages
