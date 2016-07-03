@@ -10,22 +10,65 @@
 		B82947091D05AA6000D3F146 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B82947081D05AA6000D3F146 /* main.m */; };
 		B829470C1D05AA6000D3F146 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B829470B1D05AA6000D3F146 /* AppDelegate.m */; };
 		B829470F1D05AA6000D3F146 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B829470E1D05AA6000D3F146 /* ViewController.m */; };
-		B82947121D05AA6000D3F146 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82947101D05AA6000D3F146 /* Main.storyboard */; };
 		B82947141D05AA6000D3F146 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B82947131D05AA6000D3F146 /* Assets.xcassets */; };
 		B82947171D05AA6000D3F146 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82947151D05AA6000D3F146 /* LaunchScreen.storyboard */; };
+		B829472A1D05AECA00D3F146 /* Engine.m in Sources */ = {isa = PBXBuildFile; fileRef = B82947291D05AECA00D3F146 /* Engine.m */; };
+		B829472E1D05AED400D3F146 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B829472B1D05AED400D3F146 /* HeaderView.m */; };
+		B829472F1D05AED400D3F146 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B829472C1D05AED400D3F146 /* HelpViewController.m */; };
+		B82947301D05AED400D3F146 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B829472D1D05AED400D3F146 /* InfoViewController.m */; };
+		B82947341D05AEDD00D3F146 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82947311D05AEDD00D3F146 /* MainViewController.m */; };
+		B82947351D05AEDD00D3F146 /* ProcessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B82947321D05AEDD00D3F146 /* ProcessCell.m */; };
+		B82947361D05AEDD00D3F146 /* ThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B82947331D05AEDD00D3F146 /* ThreadCell.m */; };
+		B82947411D05B28F00D3F146 /* bg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B82947381D05B28F00D3F146 /* bg2@2x.png */; };
+		B82947421D05B28F00D3F146 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B82947391D05B28F00D3F146 /* bg@2x.png */; };
+		B82947431D05B28F00D3F146 /* help@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B829473A1D05B28F00D3F146 /* help@2x.png */; };
+		B82947441D05B28F00D3F146 /* Icon-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B829473B1D05B28F00D3F146 /* Icon-iPad.png */; };
+		B82947451D05B28F00D3F146 /* Icon-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B829473C1D05B28F00D3F146 /* Icon-iPad@2x.png */; };
+		B82947461D05B28F00D3F146 /* Icon-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = B829473D1D05B28F00D3F146 /* Icon-iPhone.png */; };
+		B82947471D05B28F00D3F146 /* Icon-iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B829473E1D05B28F00D3F146 /* Icon-iPhone@2x.png */; };
+		B82947481D05B28F00D3F146 /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B829473F1D05B28F00D3F146 /* info@2x.png */; };
+		B82947491D05B28F00D3F146 /* kill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B82947401D05B28F00D3F146 /* kill@2x.png */; };
+		B829474B1D05B29900D3F146 /* HeaderView-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B829474A1D05B29900D3F146 /* HeaderView-iPad.xib */; };
+		B829474F1D05B3FF00D3F146 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B829474E1D05B3FF00D3F146 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B82947041D05AA6000D3F146 /* mobileam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mobileam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B82947041D05AA6000D3F146 /* MobileAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82947081D05AA6000D3F146 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B829470A1D05AA6000D3F146 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B829470B1D05AA6000D3F146 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B829470D1D05AA6000D3F146 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		B829470E1D05AA6000D3F146 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		B82947111D05AA6000D3F146 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B82947131D05AA6000D3F146 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B82947161D05AA6000D3F146 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B82947181D05AA6000D3F146 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B829471E1D05AE8F00D3F146 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B829471F1D05AE8F00D3F146 /* Engine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Engine.h; sourceTree = "<group>"; };
+		B82947201D05AE8F00D3F146 /* HeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
+		B82947211D05AE8F00D3F146 /* HelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		B82947221D05AE8F00D3F146 /* InfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		B82947231D05AE8F00D3F146 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		B82947241D05AE8F00D3F146 /* NSTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSTask.h; sourceTree = "<group>"; };
+		B82947251D05AE8F00D3F146 /* ProcessCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProcessCell.h; sourceTree = "<group>"; };
+		B82947261D05AE9D00D3F146 /* ThreadCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadCell.h; sourceTree = "<group>"; };
+		B82947271D05AE9D00D3F146 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B82947291D05AECA00D3F146 /* Engine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Engine.m; sourceTree = "<group>"; };
+		B829472B1D05AED400D3F146 /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
+		B829472C1D05AED400D3F146 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		B829472D1D05AED400D3F146 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		B82947311D05AEDD00D3F146 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		B82947321D05AEDD00D3F146 /* ProcessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessCell.m; sourceTree = "<group>"; };
+		B82947331D05AEDD00D3F146 /* ThreadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadCell.m; sourceTree = "<group>"; };
+		B82947381D05B28F00D3F146 /* bg2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg2@2x.png"; sourceTree = "<group>"; };
+		B82947391D05B28F00D3F146 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
+		B829473A1D05B28F00D3F146 /* help@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help@2x.png"; sourceTree = "<group>"; };
+		B829473B1D05B28F00D3F146 /* Icon-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-iPad.png"; sourceTree = "<group>"; };
+		B829473C1D05B28F00D3F146 /* Icon-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-iPad@2x.png"; sourceTree = "<group>"; };
+		B829473D1D05B28F00D3F146 /* Icon-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-iPhone.png"; sourceTree = "<group>"; };
+		B829473E1D05B28F00D3F146 /* Icon-iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-iPhone@2x.png"; sourceTree = "<group>"; };
+		B829473F1D05B28F00D3F146 /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info@2x.png"; sourceTree = "<group>"; };
+		B82947401D05B28F00D3F146 /* kill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kill@2x.png"; sourceTree = "<group>"; };
+		B829474A1D05B29900D3F146 /* HeaderView-iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "HeaderView-iPad.xib"; sourceTree = "<group>"; };
+		B829474E1D05B3FF00D3F146 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +85,7 @@
 		B82946FB1D05AA6000D3F146 = {
 			isa = PBXGroup;
 			children = (
-				B82947061D05AA6000D3F146 /* mobileam */,
+				B82947061D05AA6000D3F146 /* MobileAM */,
 				B82947051D05AA6000D3F146 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,25 +93,43 @@
 		B82947051D05AA6000D3F146 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B82947041D05AA6000D3F146 /* mobileam.app */,
+				B82947041D05AA6000D3F146 /* MobileAM.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B82947061D05AA6000D3F146 /* mobileam */ = {
+		B82947061D05AA6000D3F146 /* MobileAM */ = {
 			isa = PBXGroup;
 			children = (
-				B829470A1D05AA6000D3F146 /* AppDelegate.h */,
+				B82947201D05AE8F00D3F146 /* HeaderView.h */,
+				B82947211D05AE8F00D3F146 /* HelpViewController.h */,
+				B82947221D05AE8F00D3F146 /* InfoViewController.h */,
+				B82947231D05AE8F00D3F146 /* MainViewController.h */,
+				B82947261D05AE9D00D3F146 /* ThreadCell.h */,
+				B82947271D05AE9D00D3F146 /* ViewController.h */,
+				B82947241D05AE8F00D3F146 /* NSTask.h */,
+				B829471F1D05AE8F00D3F146 /* Engine.h */,
+				B82947291D05AECA00D3F146 /* Engine.m */,
+				B82947251D05AE8F00D3F146 /* ProcessCell.h */,
+				B829471E1D05AE8F00D3F146 /* AppDelegate.h */,
 				B829470B1D05AA6000D3F146 /* AppDelegate.m */,
 				B829470D1D05AA6000D3F146 /* ViewController.h */,
 				B829470E1D05AA6000D3F146 /* ViewController.m */,
-				B82947101D05AA6000D3F146 /* Main.storyboard */,
+				B829472B1D05AED400D3F146 /* HeaderView.m */,
+				B829472C1D05AED400D3F146 /* HelpViewController.m */,
+				B829472D1D05AED400D3F146 /* InfoViewController.m */,
+				B82947311D05AEDD00D3F146 /* MainViewController.m */,
+				B82947321D05AEDD00D3F146 /* ProcessCell.m */,
+				B82947331D05AEDD00D3F146 /* ThreadCell.m */,
 				B82947131D05AA6000D3F146 /* Assets.xcassets */,
+				B829474A1D05B29900D3F146 /* HeaderView-iPad.xib */,
 				B82947151D05AA6000D3F146 /* LaunchScreen.storyboard */,
+				B829474E1D05B3FF00D3F146 /* Main.storyboard */,
 				B82947181D05AA6000D3F146 /* Info.plist */,
+				B82947371D05B28F00D3F146 /* Resources */,
 				B82947071D05AA6000D3F146 /* Supporting Files */,
 			);
-			path = mobileam;
+			path = MobileAM;
 			sourceTree = "<group>";
 		};
 		B82947071D05AA6000D3F146 /* Supporting Files */ = {
@@ -79,12 +140,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B82947371D05B28F00D3F146 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B82947381D05B28F00D3F146 /* bg2@2x.png */,
+				B82947391D05B28F00D3F146 /* bg@2x.png */,
+				B829473A1D05B28F00D3F146 /* help@2x.png */,
+				B829473B1D05B28F00D3F146 /* Icon-iPad.png */,
+				B829473C1D05B28F00D3F146 /* Icon-iPad@2x.png */,
+				B829473D1D05B28F00D3F146 /* Icon-iPhone.png */,
+				B829473E1D05B28F00D3F146 /* Icon-iPhone@2x.png */,
+				B829473F1D05B28F00D3F146 /* info@2x.png */,
+				B82947401D05B28F00D3F146 /* kill@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B82947031D05AA6000D3F146 /* mobileam */ = {
+		B82947031D05AA6000D3F146 /* MobileAM */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B829471B1D05AA6000D3F146 /* Build configuration list for PBXNativeTarget "mobileam" */;
+			buildConfigurationList = B829471B1D05AA6000D3F146 /* Build configuration list for PBXNativeTarget "MobileAM" */;
 			buildPhases = (
 				B82947001D05AA6000D3F146 /* Sources */,
 				B82947011D05AA6000D3F146 /* Frameworks */,
@@ -94,9 +171,9 @@
 			);
 			dependencies = (
 			);
-			name = mobileam;
-			productName = mobileam;
-			productReference = B82947041D05AA6000D3F146 /* mobileam.app */;
+			name = MobileAM;
+			productName = MobileAM;
+			productReference = B82947041D05AA6000D3F146 /* MobileAM.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -114,7 +191,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B82946FF1D05AA6000D3F146 /* Build configuration list for PBXProject "mobileam" */;
+			buildConfigurationList = B82946FF1D05AA6000D3F146 /* Build configuration list for PBXProject "MobileAM" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -127,7 +204,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B82947031D05AA6000D3F146 /* mobileam */,
+				B82947031D05AA6000D3F146 /* MobileAM */,
 			);
 		};
 /* End PBXProject section */
@@ -138,8 +215,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B82947171D05AA6000D3F146 /* LaunchScreen.storyboard in Resources */,
+				B82947451D05B28F00D3F146 /* Icon-iPad@2x.png in Resources */,
+				B829474B1D05B29900D3F146 /* HeaderView-iPad.xib in Resources */,
+				B82947481D05B28F00D3F146 /* info@2x.png in Resources */,
+				B82947471D05B28F00D3F146 /* Icon-iPhone@2x.png in Resources */,
+				B82947461D05B28F00D3F146 /* Icon-iPhone.png in Resources */,
 				B82947141D05AA6000D3F146 /* Assets.xcassets in Resources */,
-				B82947121D05AA6000D3F146 /* Main.storyboard in Resources */,
+				B829474F1D05B3FF00D3F146 /* Main.storyboard in Resources */,
+				B82947411D05B28F00D3F146 /* bg2@2x.png in Resources */,
+				B82947491D05B28F00D3F146 /* kill@2x.png in Resources */,
+				B82947421D05B28F00D3F146 /* bg@2x.png in Resources */,
+				B82947431D05B28F00D3F146 /* help@2x.png in Resources */,
+				B82947441D05B28F00D3F146 /* Icon-iPad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,22 +238,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				B829470F1D05AA6000D3F146 /* ViewController.m in Sources */,
+				B82947361D05AEDD00D3F146 /* ThreadCell.m in Sources */,
+				B829472F1D05AED400D3F146 /* HelpViewController.m in Sources */,
+				B829472E1D05AED400D3F146 /* HeaderView.m in Sources */,
+				B82947341D05AEDD00D3F146 /* MainViewController.m in Sources */,
+				B829472A1D05AECA00D3F146 /* Engine.m in Sources */,
 				B829470C1D05AA6000D3F146 /* AppDelegate.m in Sources */,
+				B82947301D05AED400D3F146 /* InfoViewController.m in Sources */,
 				B82947091D05AA6000D3F146 /* main.m in Sources */,
+				B82947351D05AEDD00D3F146 /* ProcessCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B82947101D05AA6000D3F146 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B82947111D05AA6000D3F146 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B82947151D05AA6000D3F146 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -266,7 +352,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = mobileam/Info.plist;
+				INFOPLIST_FILE = MobileAM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vsnrain.mobileam;
@@ -278,7 +364,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = mobileam/Info.plist;
+				INFOPLIST_FILE = MobileAM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vsnrain.mobileam;
@@ -289,7 +375,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B82946FF1D05AA6000D3F146 /* Build configuration list for PBXProject "mobileam" */ = {
+		B82946FF1D05AA6000D3F146 /* Build configuration list for PBXProject "MobileAM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B82947191D05AA6000D3F146 /* Debug */,
@@ -298,13 +384,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B829471B1D05AA6000D3F146 /* Build configuration list for PBXNativeTarget "mobileam" */ = {
+		B829471B1D05AA6000D3F146 /* Build configuration list for PBXNativeTarget "MobileAM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B829471C1D05AA6000D3F146 /* Debug */,
 				B829471D1D05AA6000D3F146 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
