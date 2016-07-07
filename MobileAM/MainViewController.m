@@ -88,26 +88,24 @@
     cell.pidLabel.text = @"12425";
     cell.commLabel.text = @"test";
     
-    /*
-     //cell.pidLabel.text = [[[processList objectAtIndex:indexPath.row] objectForKey:@"PID"] stringValue];
-     //cell.commLabel.text = [[processList objectAtIndex:indexPath.row] objectForKey:@"COMM"];
+    cell.pidLabel.text = [[[processList objectAtIndex:indexPath.row] objectForKey:@"PID"] stringValue];
+    cell.commLabel.text = [[processList objectAtIndex:indexPath.row] objectForKey:@"COMM"];
      
-     int tmpn;
-     NSString *tmps;
+    int tmpn;
+    NSString *tmps;
      
-     tmpn = [[[processList objectAtIndex:indexPath.row] objectForKey:@"UID"] intValue];
-     tmps = [NSString stringWithUTF8String:user_from_uid(tmpn, NULL)];
-     cell.userLabel.text = [NSString stringWithFormat:@"%@ (%d)", tmps, tmpn];
+    tmpn = [[[processList objectAtIndex:indexPath.row] objectForKey:@"UID"] intValue];
+    tmps = [NSString stringWithUTF8String:user_from_uid(tmpn, NULL)];
+    cell.userLabel.text = [NSString stringWithFormat:@"%@ (%d)", tmps, tmpn];
      
-     tmpn = [[[processList objectAtIndex:indexPath.row] objectForKey:@"GID"] intValue];
-     tmps = [NSString stringWithUTF8String:group_from_gid(tmpn, NULL)];
-     cell.groupLabel.text = [NSString stringWithFormat:@"%@ (%d)", tmps, tmpn];
+    tmpn = [[[processList objectAtIndex:indexPath.row] objectForKey:@"GID"] intValue];
+    tmps = [NSString stringWithUTF8String:group_from_gid(tmpn, NULL)];
+    cell.groupLabel.text = [NSString stringWithFormat:@"%@ (%d)", tmps, tmpn];
      
-     cell.cpuLabel.text = [NSString stringWithFormat:@"%.2f", [[[processList objectAtIndex:indexPath.row] objectForKey:@"TOT_CPU"] floatValue]];
-     [[[processList objectAtIndex:indexPath.row] objectForKey:@"TOT_CPU"] stringValue];
-     cell.thrLabel.text = [[[processList objectAtIndex:indexPath.row] objectForKey:@"THREAD_COUNT"] stringValue];
-     cell.memLabel.text = [NSString stringWithFormat:@"%.3f MB  ", [[[processList objectAtIndex:indexPath.row] objectForKey:@"RES_SIZE"] intValue]/(float)1048576 ];
-     */
+    cell.cpuLabel.text = [NSString stringWithFormat:@"%.2f", [[[processList objectAtIndex:indexPath.row] objectForKey:@"TOT_CPU"] floatValue]];
+    [[[processList objectAtIndex:indexPath.row] objectForKey:@"TOT_CPU"] stringValue];
+    cell.thrLabel.text = [[[processList objectAtIndex:indexPath.row] objectForKey:@"THREAD_COUNT"] stringValue];
+    cell.memLabel.text = [NSString stringWithFormat:@"%.3f MB  ", [[[processList objectAtIndex:indexPath.row] objectForKey:@"RES_SIZE"] intValue]/(float)1048576 ];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -115,8 +113,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 50;
-    //return processList.count;
+    //return 50;
+    return processList.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
