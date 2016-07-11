@@ -42,7 +42,7 @@
     
     processList = [[NSArray alloc] init];
     
-    self.headerView = [[[NSBundle mainBundle] loadNibNamed:@"ProcessListHeaderView" owner:self options:nil] objectAtIndex:0];
+    self.headerView = [[[NSBundle mainBundle] loadNibNamed:@"ProcessListHeader" owner:self options:nil] objectAtIndex:0];
     self.headerView.sortType = 'P';
     
     [self.bottomView addSubview: self.log];

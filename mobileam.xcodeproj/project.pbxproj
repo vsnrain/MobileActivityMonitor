@@ -19,8 +19,10 @@
 		B82947361D05AEDD00D3F146 /* ThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B82947331D05AEDD00D3F146 /* ThreadCell.m */; };
 		B82947451D05B28F00D3F146 /* Icon-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B829473C1D05B28F00D3F146 /* Icon-iPad@2x.png */; };
 		B82947471D05B28F00D3F146 /* Icon-iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B829473E1D05B28F00D3F146 /* Icon-iPhone@2x.png */; };
-		B829474B1D05B29900D3F146 /* ProcessListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B829474A1D05B29900D3F146 /* ProcessListHeaderView.xib */; };
-		B829474F1D05B3FF00D3F146 /* Main_.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B829474E1D05B3FF00D3F146 /* Main_.storyboard */; };
+		B829474B1D05B29900D3F146 /* ProcessListHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B829474A1D05B29900D3F146 /* ProcessListHeader.xib */; };
+		B8983B991D33AE3100DDCBEA /* ProcessDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8983B981D33AE3100DDCBEA /* ProcessDetail.xib */; };
+		B8983B9B1D33AE7200DDCBEA /* ProcessDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8983B9A1D33AE7200DDCBEA /* ProcessDetailCell.xib */; };
+		B8983B9D1D33AEA200DDCBEA /* ProcessDetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8983B9C1D33AEA200DDCBEA /* ProcessDetailHeader.xib */; };
 		B8BACF7A1D29504100FF309B /* Main.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8BACF791D29504100FF309B /* Main.xib */; };
 		B8BACF7C1D29533600FF309B /* ProcessListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8BACF7B1D29533600FF309B /* ProcessListCell.xib */; };
 /* End PBXBuildFile section */
@@ -49,8 +51,10 @@
 		B82947331D05AEDD00D3F146 /* ThreadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadCell.m; sourceTree = "<group>"; };
 		B829473C1D05B28F00D3F146 /* Icon-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-iPad@2x.png"; sourceTree = "<group>"; };
 		B829473E1D05B28F00D3F146 /* Icon-iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-iPhone@2x.png"; sourceTree = "<group>"; };
-		B829474A1D05B29900D3F146 /* ProcessListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessListHeaderView.xib; sourceTree = "<group>"; };
-		B829474E1D05B3FF00D3F146 /* Main_.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_.storyboard; sourceTree = "<group>"; };
+		B829474A1D05B29900D3F146 /* ProcessListHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessListHeader.xib; sourceTree = "<group>"; };
+		B8983B981D33AE3100DDCBEA /* ProcessDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessDetail.xib; sourceTree = "<group>"; };
+		B8983B9A1D33AE7200DDCBEA /* ProcessDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessDetailCell.xib; sourceTree = "<group>"; };
+		B8983B9C1D33AEA200DDCBEA /* ProcessDetailHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessDetailHeader.xib; sourceTree = "<group>"; };
 		B8BACF791D29504100FF309B /* Main.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main.xib; sourceTree = "<group>"; };
 		B8BACF7B1D29533600FF309B /* ProcessListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessListCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,9 +108,11 @@
 				B829472B1D05AED400D3F146 /* ProcessListHeaderView.m */,
 				B82947131D05AA6000D3F146 /* Assets.xcassets */,
 				B8BACF791D29504100FF309B /* Main.xib */,
-				B829474A1D05B29900D3F146 /* ProcessListHeaderView.xib */,
+				B829474A1D05B29900D3F146 /* ProcessListHeader.xib */,
 				B8BACF7B1D29533600FF309B /* ProcessListCell.xib */,
-				B829474E1D05B3FF00D3F146 /* Main_.storyboard */,
+				B8983B981D33AE3100DDCBEA /* ProcessDetail.xib */,
+				B8983B9C1D33AEA200DDCBEA /* ProcessDetailHeader.xib */,
+				B8983B9A1D33AE7200DDCBEA /* ProcessDetailCell.xib */,
 				B82947371D05B28F00D3F146 /* Resources */,
 				B82947071D05AA6000D3F146 /* Supporting Files */,
 			);
@@ -190,12 +196,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B82947451D05B28F00D3F146 /* Icon-iPad@2x.png in Resources */,
-				B829474B1D05B29900D3F146 /* ProcessListHeaderView.xib in Resources */,
+				B829474B1D05B29900D3F146 /* ProcessListHeader.xib in Resources */,
 				B82947471D05B28F00D3F146 /* Icon-iPhone@2x.png in Resources */,
 				B82947141D05AA6000D3F146 /* Assets.xcassets in Resources */,
-				B829474F1D05B3FF00D3F146 /* Main_.storyboard in Resources */,
+				B8983B9B1D33AE7200DDCBEA /* ProcessDetailCell.xib in Resources */,
+				B8983B991D33AE3100DDCBEA /* ProcessDetail.xib in Resources */,
 				B8BACF7A1D29504100FF309B /* Main.xib in Resources */,
 				B8BACF7C1D29533600FF309B /* ProcessListCell.xib in Resources */,
+				B8983B9D1D33AEA200DDCBEA /* ProcessDetailHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
