@@ -18,6 +18,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewConstraint;
+
 // BOTTOM VIEW
 @property (weak, nonatomic) IBOutlet UIToolbar *bottomToolbar;
 @property (weak, nonatomic) IBOutlet UIButton *bottomCpuButton;

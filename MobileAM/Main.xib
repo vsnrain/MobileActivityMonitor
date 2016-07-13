@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
@@ -11,6 +12,7 @@
                 <outlet property="bottomMemoryButton" destination="1lq-fx-UC3" id="XV4-Zt-Hnl"/>
                 <outlet property="bottomToolbar" destination="n42-qV-BXI" id="uA2-Gx-uWF"/>
                 <outlet property="bottomView" destination="GuP-rm-Ob5" id="72z-pd-yhg"/>
+                <outlet property="bottomViewConstraint" destination="9tJ-61-alx" id="qqJ-HQ-4IQ"/>
                 <outlet property="tableView" destination="nrr-ed-GoR" id="Ram-YG-oK1"/>
                 <outlet property="topBar" destination="XCZ-Kn-YJL" id="NNA-ds-tJb"/>
                 <outlet property="view" destination="PSU-aI-NgR" id="oZ7-GT-R5Y"/>
@@ -73,44 +75,45 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="T2k-hn-wgo"/>
                     </items>
                 </toolbar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GuP-rm-Ob5" userLabel="BottomView">
+                    <rect key="frame" x="0.0" y="768" width="1024" height="192"/>
+                    <subviews>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jCn-Un-gLk">
+                            <rect key="frame" x="8" y="8" width="51" height="31"/>
+                        </switch>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QiL-0e-who">
+                            <rect key="frame" x="8" y="53" width="121" height="29"/>
+                            <segments>
+                                <segment title="First"/>
+                                <segment title="Second"/>
+                            </segments>
+                        </segmentedControl>
+                        <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="euZ-R8-p8u">
+                            <rect key="frame" x="9" y="99" width="118" height="31"/>
+                        </slider>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0067950606769999998" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
             </subviews>
             <constraints>
+                <constraint firstItem="GuP-rm-Ob5" firstAttribute="top" secondItem="n42-qV-BXI" secondAttribute="bottom" id="17f-gW-8nB"/>
                 <constraint firstItem="XCZ-Kn-YJL" firstAttribute="leading" secondItem="PSU-aI-NgR" secondAttribute="leading" id="396-xE-jkk"/>
                 <constraint firstAttribute="trailing" secondItem="nrr-ed-GoR" secondAttribute="trailing" id="528-B3-5r6"/>
+                <constraint firstItem="GuP-rm-Ob5" firstAttribute="height" secondItem="PSU-aI-NgR" secondAttribute="height" multiplier="1:4" id="6Tl-j9-Swi"/>
+                <constraint firstItem="n42-qV-BXI" firstAttribute="bottom" secondItem="nrr-ed-GoR" secondAttribute="bottom" id="8oe-96-5Qm"/>
+                <constraint firstAttribute="bottom" secondItem="GuP-rm-Ob5" secondAttribute="top" id="9tJ-61-alx"/>
                 <constraint firstItem="XCZ-Kn-YJL" firstAttribute="top" secondItem="PSU-aI-NgR" secondAttribute="top" id="Cpe-pS-RCT"/>
                 <constraint firstAttribute="trailing" secondItem="n42-qV-BXI" secondAttribute="trailing" id="H53-GY-PxZ"/>
                 <constraint firstAttribute="trailing" secondItem="XCZ-Kn-YJL" secondAttribute="trailing" id="OLW-qX-ezO"/>
-                <constraint firstItem="n42-qV-BXI" firstAttribute="top" secondItem="nrr-ed-GoR" secondAttribute="bottom" id="PZU-1L-ae8"/>
                 <constraint firstItem="nrr-ed-GoR" firstAttribute="top" secondItem="PSU-aI-NgR" secondAttribute="top" id="Q34-ph-Ork"/>
+                <constraint firstAttribute="trailing" secondItem="GuP-rm-Ob5" secondAttribute="trailing" id="SUh-I0-A6c"/>
                 <constraint firstItem="n42-qV-BXI" firstAttribute="leading" secondItem="PSU-aI-NgR" secondAttribute="leading" id="V0C-7k-rhw"/>
-                <constraint firstAttribute="bottom" secondItem="nrr-ed-GoR" secondAttribute="bottom" id="gco-BL-Cic"/>
+                <constraint firstItem="GuP-rm-Ob5" firstAttribute="leading" secondItem="PSU-aI-NgR" secondAttribute="leading" id="ejs-In-Vnv"/>
+                <constraint firstItem="GuP-rm-Ob5" firstAttribute="top" secondItem="nrr-ed-GoR" secondAttribute="bottom" id="oda-g8-YUp"/>
                 <constraint firstItem="nrr-ed-GoR" firstAttribute="leading" secondItem="PSU-aI-NgR" secondAttribute="leading" id="sEj-L6-dsN"/>
-                <constraint firstAttribute="bottom" secondItem="n42-qV-BXI" secondAttribute="bottom" id="sVG-YR-YNd"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="PZU-1L-ae8"/>
-                </mask>
-            </variation>
-            <point key="canvasLocation" x="281.5" y="96"/>
-        </view>
-        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GuP-rm-Ob5" userLabel="BottomView">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-            <subviews>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FfV-2i-gJL">
-                    <rect key="frame" x="0.0" y="0.0" width="121" height="29"/>
-                    <segments>
-                        <segment title="First"/>
-                        <segment title="Second"/>
-                    </segments>
-                </segmentedControl>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="84g-Xm-une">
-                    <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
-                </switch>
-            </subviews>
-            <color key="backgroundColor" red="0.0067950606769999998" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-            <point key="canvasLocation" x="436" y="909"/>
+            <point key="canvasLocation" x="281" y="96"/>
         </view>
     </objects>
 </document>

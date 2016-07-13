@@ -84,16 +84,17 @@
     
     // BOTTOM VIEW
     
-    CGRect frame = self.view.superview.frame;
+    //CGRect frame = self.view.superview.frame;
     
     if (bottomViewActivated){
-        self.view.frame = CGRectMake(0, 0, frame.size.width, frame.size.height*0.75);
-        self.bottomView.frame = CGRectMake(0, frame.size.height*0.75, frame.size.width, frame.size.height*0.25);
-        
+        self.bottomViewConstraint.constant = self.view.frame.size.height*0.25;
     }else{
-        self.view.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
-        self.bottomView.frame = CGRectMake(0, frame.size.height, frame.size.width, frame.size.height*0.25);
+        self.bottomViewConstraint.constant = 0;
     }
+    
+    [self.tableView setNeedsUpdateConstraints];
+    [self.bottomToolbar setNeedsUpdateConstraints];
+    [self.bottomView setNeedsUpdateConstraints];
 }
 
 - (UIBarPosition) positionForBar:(id <UIBarPositioning>)bar {
@@ -116,32 +117,43 @@
 //////////////////////////////////////////////////// BUTTONS ///////////////////////////////////////////////////////////////
 
 - (IBAction) bottomButtonPressed:(UIButton *)sender {
+    
+    void (^openAnimation)() = ^void() {
+        self.bottomViewConstraint.constant = self.bottomView.frame.size.height;
+        
+        [self.tableView setNeedsUpdateConstraints];
+        [self.bottomToolbar setNeedsUpdateConstraints];
+        [self.bottomView setNeedsUpdateConstraints];
+        
+        [self.view layoutIfNeeded];
+    };
+    
+    void (^closeAnimation)() = ^void() {
+        self.bottomViewConstraint.constant = 0;
+        
+        [self.tableView setNeedsUpdateConstraints];
+        [self.bottomToolbar setNeedsUpdateConstraints];
+        [self.bottomView setNeedsUpdateConstraints];
+        
+        [self.view layoutIfNeeded];
+    };
+    
     if (sender.selected){
         
         sender.selected = NO;
         bottomViewActivated = NO;
+        self.bottomView.hidden = NO;
         
-        self.bottomView.hidden = YES;
-        
-        
-        //self.view.frame = CGRectMake(0, 0, self.view.superview.bounds.size.width, self.view.superview.bounds.size.height);
-        
-        //self.bottomView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height*0.25);
+        [UIView animateWithDuration:0.2f animations:closeAnimation completion:nil];
         
     }else{
         
         sender.selected = YES;
         bottomViewActivated = YES;
-        
-        //self.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height*0.75);
-        
-        //self.bottomView.frame = CGRectMake(0, self.view.bounds.size.height*0.75, self.view.bounds.size.width, self.view.bounds.size.height*0.25);
-        
         self.bottomView.hidden = NO;
+        
+        [UIView animateWithDuration:0.2f animations:openAnimation completion:nil];
     }
-    
-    [self.view setNeedsLayout];
-    [self.view layoutIfNeeded];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
