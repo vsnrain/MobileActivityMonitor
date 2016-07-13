@@ -17,19 +17,23 @@
 @property (weak, nonatomic) IBOutlet UINavigationBar *topBar;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) ProcessListHeaderView *headerView;
 
-@property (weak, nonatomic) IBOutlet UISegmentedControl *bottomControl;
+// BOTTOM VIEW
+@property (weak, nonatomic) IBOutlet UIToolbar *bottomToolbar;
+@property (weak, nonatomic) IBOutlet UIButton *bottomCpuButton;
+@property (weak, nonatomic) IBOutlet UIButton *bottomMemoryButton;
 @property (strong, nonatomic) IBOutlet UIView *bottomView;
 
 @property (weak, nonatomic) IBOutlet UITextView *log;
-@property (strong, nonatomic) IBOutlet UIView *cpuView;
-@property (strong, nonatomic) IBOutlet UIView *memView;
 
+// BOTTOM VIEW - PROCESSES
+@property (strong, nonatomic) IBOutlet UIView *procView;
 @property (weak, nonatomic) IBOutlet UILabel *procLabel;
 @property (weak, nonatomic) IBOutlet UILabel *thrLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cpuLabel;
 
+// BOTTOM VIEW - MEMORY
+@property (strong, nonatomic) IBOutlet UIView *memView;
 @property (weak, nonatomic) IBOutlet UILabel *totalPages;
 @property (weak, nonatomic) IBOutlet UILabel *wiredPages;
 @property (weak, nonatomic) IBOutlet UILabel *activePages;
