@@ -105,7 +105,7 @@
 }
 
 -(void) layoutSubviews{
-    if (self.frame.size.width < 400){
+    if (self.frame.size.width < 500){
         self.usrLabelWidthConstraintDynamic.active = NO;
         self.usrLabelWidthConstraintStatic.active = YES;
     }else{

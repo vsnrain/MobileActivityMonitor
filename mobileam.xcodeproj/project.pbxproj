@@ -92,6 +92,12 @@
 				B82947241D05AE8F00D3F146 /* NSTask.h */,
 				B829471E1D05AE8F00D3F146 /* AppDelegate.h */,
 				B829470B1D05AA6000D3F146 /* AppDelegate.m */,
+				B82947231D05AE8F00D3F146 /* MainViewController.h */,
+				B82947311D05AEDD00D3F146 /* MainViewController.m */,
+				B82947201D05AE8F00D3F146 /* ProcessListHeaderView.h */,
+				B829472B1D05AED400D3F146 /* ProcessListHeaderView.m */,
+				B82947251D05AE8F00D3F146 /* ProcessListCell.h */,
+				B82947321D05AEDD00D3F146 /* ProcessListCell.m */,
 				B829471F1D05AE8F00D3F146 /* Engine.h */,
 				B82947291D05AECA00D3F146 /* Engine.m */,
 				B82947211D05AE8F00D3F146 /* HelpViewController.h */,
@@ -100,19 +106,8 @@
 				B829472D1D05AED400D3F146 /* InfoViewController.m */,
 				B82947261D05AE9D00D3F146 /* ThreadCell.h */,
 				B82947331D05AEDD00D3F146 /* ThreadCell.m */,
-				B82947231D05AE8F00D3F146 /* MainViewController.h */,
-				B82947311D05AEDD00D3F146 /* MainViewController.m */,
-				B82947251D05AE8F00D3F146 /* ProcessListCell.h */,
-				B82947321D05AEDD00D3F146 /* ProcessListCell.m */,
-				B82947201D05AE8F00D3F146 /* ProcessListHeaderView.h */,
-				B829472B1D05AED400D3F146 /* ProcessListHeaderView.m */,
 				B82947131D05AA6000D3F146 /* Assets.xcassets */,
-				B8BACF791D29504100FF309B /* Main.xib */,
-				B829474A1D05B29900D3F146 /* ProcessListHeader.xib */,
-				B8BACF7B1D29533600FF309B /* ProcessListCell.xib */,
-				B8983B981D33AE3100DDCBEA /* ProcessDetail.xib */,
-				B8983B9C1D33AEA200DDCBEA /* ProcessDetailHeader.xib */,
-				B8983B9A1D33AE7200DDCBEA /* ProcessDetailCell.xib */,
+				B8A48FBD1D39716E00C5D57F /* UI */,
 				B82947371D05B28F00D3F146 /* Resources */,
 				B82947071D05AA6000D3F146 /* Supporting Files */,
 			);
@@ -135,6 +130,19 @@
 				B829473C1D05B28F00D3F146 /* Icon-iPad@2x.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B8A48FBD1D39716E00C5D57F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B8BACF791D29504100FF309B /* Main.xib */,
+				B829474A1D05B29900D3F146 /* ProcessListHeader.xib */,
+				B8BACF7B1D29533600FF309B /* ProcessListCell.xib */,
+				B8983B981D33AE3100DDCBEA /* ProcessDetail.xib */,
+				B8983B9C1D33AEA200DDCBEA /* ProcessDetailHeader.xib */,
+				B8983B9A1D33AE7200DDCBEA /* ProcessDetailCell.xib */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,10 +264,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -317,6 +322,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"XCODE=1",
+				);
 				INFOPLIST_FILE = MobileAM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -329,6 +339,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = "XCODE=1";
 				INFOPLIST_FILE = MobileAM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

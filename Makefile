@@ -20,7 +20,7 @@ MobileAM_FILES = $(wildcard MobileAM/*.m)
 MobileAM_RESOURCE_DIRS = MobileAM/Resources $(THEOS_OBJ_DIR_NAME)/$(wildcard *.nib)
 MobileAM_RESOURCE_FILES = MobileAM/Info.plist
 
-MobileAM_RESOURCE_XIB = $(wildcard MobileAM/*.xib)
+MobileAM_RESOURCE_XIB = $(wildcard MobileAM/UI/*.xib)
 MobileAM_RESOURCE_NIB = $(MobileAM_RESOURCE_XIB:.xib=.nib)
 
 %.nib:
