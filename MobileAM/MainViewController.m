@@ -46,7 +46,7 @@
     self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, 44, 0);
     
     headerView = [[[NSBundle mainBundle] loadNibNamed:@"ProcessListHeader" owner:self options:nil] objectAtIndex:0];
-    headerView.sortType = 'P';
+    headerView.pidButton.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ProcessListCell" bundle:nil] forCellReuseIdentifier:@"ProcessListCellID"];
     
@@ -211,12 +211,12 @@
     if(indexPath.row%2==0) cell.contentView.backgroundColor = [UIColor whiteColor];
     else cell.contentView.backgroundColor = [UIColor colorWithRed:241/255.f green:245/255.f blue:249/255.f alpha:1];
     
-    //cell.pidLabel.text = @"12425";
-    //cell.comLabel.text = @"test";
+    cell.pidLabel.text = @"12425";
+    cell.comLabel.text = @"test";
 
-    //cell.cpuLabel.text = @"88.99%";
-    //cell.thrLabel.text = @"88";
-    //cell.memLabel.text = @"268.52 MB";
+    cell.cpuLabel.text = @"88.99%";
+    cell.thrLabel.text = @"88";
+    cell.memLabel.text = @"268.52 MB";
     
     if (cell.usrLabel.frame.size.width > 60){
         cell.usrLabel.text = @"mobile (500)";
@@ -270,8 +270,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 50;
+    return 5;
     //return processList.count;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

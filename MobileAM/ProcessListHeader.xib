@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54" userLabel="PID_SORT_BUTTON">
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54" userLabel="PID_SORT_BUTTON">
                     <rect key="frame" x="0.0" y="0.0" width="50" height="34"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="ozc-IK-2wu"/>
@@ -21,20 +21,20 @@
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="pidSort" destination="3" eventType="touchUpInside" id="56"/>
+                        <action selector="changeSort:" destination="3" eventType="touchUpInside" id="lsj-D1-RxI"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76" userLabel="COM_SORT_BUTTON">
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76" userLabel="COM_SORT_BUTTON">
                     <rect key="frame" x="50" y="0.0" width="64.5" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="COM">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="nameSort" destination="3" eventType="touchUpInside" id="78"/>
+                        <action selector="changeSort:" destination="3" eventType="touchUpInside" id="a3k-J6-WM7"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63" userLabel="USR_SORT_BUTTON">
+                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63" userLabel="USR_SORT_BUTTON">
                     <rect key="frame" x="114.5" y="0.0" width="40" height="34"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="BGS-Sz-2Qb"/>
@@ -44,33 +44,20 @@
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="userSort" destination="3" eventType="touchUpInside" id="74"/>
+                        <action selector="changeSort:" destination="3" eventType="touchUpInside" id="K7m-gv-kta"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72" userLabel="GRP_SORT_BUTTON">
+                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72" userLabel="GRP_SORT_BUTTON">
                     <rect key="frame" x="154.5" y="0.0" width="40.5" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="GRP">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="groupSort" destination="3" eventType="touchUpInside" id="79"/>
+                        <action selector="changeSort:" destination="3" eventType="touchUpInside" id="oRL-WE-xCw"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66" userLabel="CPU_SORT_BUTTON">
-                    <rect key="frame" x="195" y="0.0" width="60" height="34"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="60" id="KGT-vl-usn"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="CPU">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="cpuSort" destination="3" eventType="touchUpInside" id="80"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81" userLabel="THR_SORT_BUTTON">
+                <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81" userLabel="THR_SORT_BUTTON">
                     <rect key="frame" x="255" y="0.0" width="40" height="34"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="yO5-ZL-Chd"/>
@@ -80,10 +67,10 @@
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="threadsSort" destination="3" eventType="touchUpInside" id="85"/>
+                        <action selector="changeSort:" destination="3" eventType="touchUpInside" id="8ml-Vt-apt"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83" userLabel="MEM_SORT_BUTTON">
+                <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83" userLabel="MEM_SORT_BUTTON">
                     <rect key="frame" x="295" y="0.0" width="80" height="34"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="VtS-au-oEn"/>
@@ -93,7 +80,20 @@
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="memSort" destination="3" eventType="touchUpInside" id="86"/>
+                        <action selector="changeSort:" destination="3" eventType="touchUpInside" id="mcj-kY-UMA"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66" userLabel="CPU_SORT_BUTTON">
+                    <rect key="frame" x="195" y="0.0" width="60" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="KGT-vl-usn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="CPU">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="changeSort:" destination="3" eventType="touchUpInside" id="yaO-P4-32d"/>
                     </connections>
                 </button>
             </subviews>
@@ -132,13 +132,13 @@
                 </mask>
             </variation>
             <connections>
+                <outlet property="comButton" destination="76" id="ajZ-Ja-VUe"/>
                 <outlet property="cpuButton" destination="66" id="68"/>
-                <outlet property="groupButton" destination="72" id="95"/>
+                <outlet property="grpButton" destination="72" id="xME-cv-gof"/>
                 <outlet property="memButton" destination="83" id="97"/>
-                <outlet property="nameButton" destination="76" id="94"/>
                 <outlet property="pidButton" destination="54" id="59"/>
-                <outlet property="threadsButton" destination="81" id="96"/>
-                <outlet property="userButton" destination="63" id="65"/>
+                <outlet property="thrButton" destination="81" id="1TM-Pi-Fgo"/>
+                <outlet property="usrButton" destination="63" id="pBE-F0-JKN"/>
                 <outlet property="usrLabelWidthConstraintDynamic" destination="UVD-tO-cwL" id="d5j-Ij-WVd"/>
                 <outlet property="usrLabelWidthConstraintStatic" destination="BGS-Sz-2Qb" id="3zd-cp-lKH"/>
                 <outletCollection property="buttons" destination="76" id="87"/>

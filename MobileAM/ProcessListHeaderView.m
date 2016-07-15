@@ -16,76 +16,92 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        _sortType = 'P';
+        self.sortType = SORT_PID_A;
+        self.pidButton.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
     }
     return self;
 }
 
-- (IBAction)changeSort {
-
-}
-
-
-- (IBAction)pidSort {
-    if (_sortType == 'P') _sortType = 'p';
-    else _sortType = 'P';
+- (IBAction)changeSort:(UIButton *)sender {
+    
     for (UIButton *b in self.buttons){
         b.backgroundColor = [UIColor clearColor];
     }
-    self.pidButton.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
-}
-- (IBAction)nameSort {
-    if (_sortType == 'N') _sortType = 'n';
-    else _sortType = 'N';
-    for (UIButton *b in self.buttons){
-        b.backgroundColor = [UIColor clearColor];
+    
+    switch (sender.tag) {
+        case 1:
+            if (self.sortType== SORT_PID_A) {
+                self.sortType= SORT_PID_D;
+                sender.backgroundColor = [UIColor colorWithRed:220/255.f green:80/255.f blue:80/255.f alpha:1];
+            }else{
+                self.sortType= SORT_PID_A;
+                sender.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
+            }
+            break;
+            
+        case 2:
+            if (self.sortType== SORT_COM_A) {
+                self.sortType= SORT_COM_D;
+                sender.backgroundColor = [UIColor colorWithRed:220/255.f green:80/255.f blue:80/255.f alpha:1];
+            }else{
+                self.sortType= SORT_COM_A;
+                sender.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
+            }
+            break;
+            
+        case 3:
+            if (self.sortType== SORT_USR_A) {
+                self.sortType= SORT_USR_D;
+                sender.backgroundColor = [UIColor colorWithRed:220/255.f green:80/255.f blue:80/255.f alpha:1];
+            }else{
+                self.sortType= SORT_USR_A;
+                sender.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
+            }
+            break;
+            
+        case 4:
+            if (self.sortType== SORT_GRP_A) {
+                self.sortType= SORT_GRP_D;
+                sender.backgroundColor = [UIColor colorWithRed:220/255.f green:80/255.f blue:80/255.f alpha:1];
+            }else{
+                self.sortType= SORT_GRP_A;
+                sender.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
+            }
+            break;
+            
+        case 5:
+            if (self.sortType== SORT_CPU_A) {
+                self.sortType= SORT_CPU_D;
+                sender.backgroundColor = [UIColor colorWithRed:220/255.f green:80/255.f blue:80/255.f alpha:1];
+            }else{
+                self.sortType= SORT_CPU_A;
+                sender.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
+            }
+            break;
+            
+        case 6:
+            if (self.sortType== SORT_THR_A) {
+                self.sortType= SORT_THR_D;
+                sender.backgroundColor = [UIColor colorWithRed:220/255.f green:80/255.f blue:80/255.f alpha:1];
+            }else{
+                self.sortType= SORT_THR_A;
+                sender.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
+            }
+            break;
+        
+        case 7:
+            if (self.sortType== SORT_MEM_A) {
+                self.sortType= SORT_MEM_D;
+                sender.backgroundColor = [UIColor colorWithRed:220/255.f green:80/255.f blue:80/255.f alpha:1];
+            }else{
+                self.sortType= SORT_MEM_A;
+                sender.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
+            }
+            break;
+            
+        default:
+            break;
     }
-    self.nameButton.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
-}
-
-- (IBAction)userSort {
-    if (_sortType == 'U') _sortType = 'u';
-    else _sortType = 'U';
-    for (UIButton *b in self.buttons){
-        b.backgroundColor = [UIColor clearColor];
-    }
-    self.userButton.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
-}
-
-- (IBAction)groupSort {
-    if (_sortType == 'G') _sortType = 'g';
-    else _sortType = 'G';
-    for (UIButton *b in self.buttons){
-        b.backgroundColor = [UIColor clearColor];
-    }
-    self.groupButton.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
-}
-
-- (IBAction)cpuSort {
-    if (_sortType == 'C') _sortType = 'c';
-    else _sortType = 'C';
-    for (UIButton *b in self.buttons){
-        b.backgroundColor = [UIColor clearColor];
-    }
-    self.cpuButton.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
-}
-
-- (IBAction)threadsSort {
-    if (_sortType == 'T') _sortType = 't';
-    else _sortType = 'T';
-    for (UIButton *b in self.buttons){
-        b.backgroundColor = [UIColor clearColor];
-    }
-    self.threadsButton.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
-}
-
-- (IBAction)memSort {
-    if (_sortType == 'M') _sortType = 'm';
-    else _sortType = 'M';
-    for (UIButton *b in self.buttons){
-        b.backgroundColor = [UIColor clearColor];
-    }
-    self.memButton.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
 }
 
 -(void) layoutSubviews{
