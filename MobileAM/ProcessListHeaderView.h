@@ -23,4 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *threadsButton;
 @property (weak, nonatomic) IBOutlet UIButton *memButton;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *usrLabelWidthConstraintStatic;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *usrLabelWidthConstraintDynamic;
+
 @end

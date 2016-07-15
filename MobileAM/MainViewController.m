@@ -80,14 +80,9 @@
 }
 
 - (void)viewWillLayoutSubviews{
-    // TABLE VIEW
-    
-    // BOTTOM VIEW
-    
-    //CGRect frame = self.view.superview.frame;
     
     if (bottomViewActivated){
-        self.bottomViewConstraint.constant = self.view.frame.size.height*0.25;
+        self.bottomViewConstraint.constant = self.view.frame.size.height*0.20;
     }else{
         self.bottomViewConstraint.constant = 0;
     }
@@ -216,8 +211,24 @@
     if(indexPath.row%2==0) cell.contentView.backgroundColor = [UIColor whiteColor];
     else cell.contentView.backgroundColor = [UIColor colorWithRed:241/255.f green:245/255.f blue:249/255.f alpha:1];
     
-    cell.pidLabel.text = @"12425";
-    cell.commLabel.text = @"test";
+    //cell.pidLabel.text = @"12425";
+    //cell.comLabel.text = @"test";
+
+    //cell.cpuLabel.text = @"88.99%";
+    //cell.thrLabel.text = @"88";
+    //cell.memLabel.text = @"268.52 MB";
+    
+    if (cell.usrLabel.frame.size.width > 60){
+        cell.usrLabel.text = @"mobile (500)";
+    }else{
+        cell.usrLabel.text = @"500";
+    }
+    
+    if (cell.grpLabel.frame.size.width > 60){
+        cell.grpLabel.text = @"mobile (500)";
+    }else{
+        cell.grpLabel.text = @"500";
+    }
     
     /*
     cell.pidLabel.text = [[[processList objectAtIndex:indexPath.row] objectForKey:@"PID"] stringValue];

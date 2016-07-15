@@ -27,4 +27,14 @@
     // Configure the view for the selected state
 }
 
+-(void) layoutSubviews{
+    if (self.frame.size.width < 400){
+        self.usrLabelWidthConstraintDynamic.active = NO;
+        self.usrLabelWidthConstraintStatic.active = YES;
+    }else{
+        self.usrLabelWidthConstraintDynamic.active = YES;
+        self.usrLabelWidthConstraintStatic.active = NO;
+    }
+}
+
 @end

@@ -76,7 +76,7 @@
                     </items>
                 </toolbar>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GuP-rm-Ob5" userLabel="BottomView">
-                    <rect key="frame" x="0.0" y="768" width="1024" height="192"/>
+                    <rect key="frame" x="0.0" y="768" width="1024" height="153.5"/>
                     <subviews>
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jCn-Un-gLk">
                             <rect key="frame" x="8" y="8" width="51" height="31"/>
@@ -99,7 +99,7 @@
                 <constraint firstItem="GuP-rm-Ob5" firstAttribute="top" secondItem="n42-qV-BXI" secondAttribute="bottom" id="17f-gW-8nB"/>
                 <constraint firstItem="XCZ-Kn-YJL" firstAttribute="leading" secondItem="PSU-aI-NgR" secondAttribute="leading" id="396-xE-jkk"/>
                 <constraint firstAttribute="trailing" secondItem="nrr-ed-GoR" secondAttribute="trailing" id="528-B3-5r6"/>
-                <constraint firstItem="GuP-rm-Ob5" firstAttribute="height" secondItem="PSU-aI-NgR" secondAttribute="height" multiplier="1:4" id="6Tl-j9-Swi"/>
+                <constraint firstItem="GuP-rm-Ob5" firstAttribute="height" secondItem="PSU-aI-NgR" secondAttribute="height" multiplier="1:5" id="6Tl-j9-Swi"/>
                 <constraint firstItem="n42-qV-BXI" firstAttribute="bottom" secondItem="nrr-ed-GoR" secondAttribute="bottom" id="8oe-96-5Qm"/>
                 <constraint firstAttribute="bottom" secondItem="GuP-rm-Ob5" secondAttribute="top" id="9tJ-61-alx"/>
                 <constraint firstItem="XCZ-Kn-YJL" firstAttribute="top" secondItem="PSU-aI-NgR" secondAttribute="top" id="Cpe-pS-RCT"/>

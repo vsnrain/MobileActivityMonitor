@@ -15,18 +15,17 @@
 @interface MainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *topBar;
-
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewConstraint;
 
 // BOTTOM VIEW
 @property (weak, nonatomic) IBOutlet UIToolbar *bottomToolbar;
+
 @property (weak, nonatomic) IBOutlet UIButton *bottomCpuButton;
 @property (weak, nonatomic) IBOutlet UIButton *bottomMemoryButton;
-@property (strong, nonatomic) IBOutlet UIView *bottomView;
 
-@property (weak, nonatomic) IBOutlet UITextView *log;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewConstraint;
+
 
 // BOTTOM VIEW - PROCESSES
 @property (strong, nonatomic) IBOutlet UIView *procView;
@@ -56,6 +55,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *pagesize;
 @property (weak, nonatomic) IBOutlet UILabel *physical;
 @property (weak, nonatomic) IBOutlet UILabel *user;
+
+// BOTTOM VIEW - LOG
+@property (weak, nonatomic) IBOutlet UITextView *log;
 
 -(void) refresh;
 

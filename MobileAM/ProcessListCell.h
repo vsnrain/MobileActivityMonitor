@@ -11,13 +11,16 @@
 @interface ProcessListCell : UITableViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *pidLabel;
-@property (nonatomic, strong) IBOutlet UILabel *commLabel;
-@property (nonatomic, strong) IBOutlet UILabel *userLabel;
-@property (nonatomic, strong) IBOutlet UILabel *groupLabel;
+@property (nonatomic, strong) IBOutlet UILabel *comLabel;
+@property (nonatomic, strong) IBOutlet UILabel *usrLabel;
+@property (nonatomic, strong) IBOutlet UILabel *grpLabel;
 @property (nonatomic, strong) IBOutlet UILabel *cpuLabel;
 @property (nonatomic, strong) IBOutlet UILabel *thrLabel;
 @property (nonatomic, strong) IBOutlet UILabel *memLabel;
 
 @property (nonatomic, strong) IBOutlet UIImageView *procIcon;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *usrLabelWidthConstraintStatic;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *usrLabelWidthConstraintDynamic;
 
 @end

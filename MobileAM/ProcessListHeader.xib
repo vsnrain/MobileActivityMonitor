@@ -1,174 +1,136 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view alpha="0.85000002384185791" contentMode="scaleToFill" id="3" customClass="ProcessListHeaderView">
-            <rect key="frame" x="0.0" y="0.0" width="1024" height="34"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text=" PID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4">
-                    <rect key="frame" x="0.0" y="0.0" width="65" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" alpha="0.20000000298023224" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="54" userLabel="PID_SORT_BUTTON">
-                    <rect key="frame" x="0.0" y="0.0" width="65" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54" userLabel="PID_SORT_BUTTON">
+                    <rect key="frame" x="0.0" y="0.0" width="50" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="ozc-IK-2wu"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="PID">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="pidSort" destination="3" eventType="touchUpInside" id="56"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="        Process Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6">
-                    <rect key="frame" x="65" y="0.0" width="250" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" alpha="0.20000000298023224" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="76" userLabel="NAME_SORT_BUTTON">
-                    <rect key="frame" x="65" y="0.0" width="250" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76" userLabel="COM_SORT_BUTTON">
+                    <rect key="frame" x="50" y="0.0" width="64.5" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="COM">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="nameSort" destination="3" eventType="touchUpInside" id="78"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="User" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="62">
-                    <rect key="frame" x="320" y="0.0" width="170" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" alpha="0.20000000298023224" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="63" userLabel="USER_SORT_BUTTON">
-                    <rect key="frame" x="320" y="0.0" width="170" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63" userLabel="USR_SORT_BUTTON">
+                    <rect key="frame" x="114.5" y="0.0" width="40" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="BGS-Sz-2Qb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="USR">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="userSort" destination="3" eventType="touchUpInside" id="74"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="69">
-                    <rect key="frame" x="490" y="0.0" width="170" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" alpha="0.20000000298023224" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="72" userLabel="GROUP_SORT_BUTTON">
-                    <rect key="frame" x="490" y="0.0" width="170" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72" userLabel="GRP_SORT_BUTTON">
+                    <rect key="frame" x="154.5" y="0.0" width="40.5" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="GRP">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="groupSort" destination="3" eventType="touchUpInside" id="79"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="CPU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5" userLabel="Label - CPU">
-                    <rect key="frame" x="665" y="0.0" width="100" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" alpha="0.20000000298023224" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="66" userLabel="CPU_SORT_BUTTON">
-                    <rect key="frame" x="665" y="0.0" width="100" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66" userLabel="CPU_SORT_BUTTON">
+                    <rect key="frame" x="195" y="0.0" width="60" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="KGT-vl-usn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="CPU">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="cpuSort" destination="3" eventType="touchUpInside" id="80"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Threads" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="70">
-                    <rect key="frame" x="765" y="0.0" width="100" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" alpha="0.20000000298023224" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="81" userLabel="THREADS_SORT_BUTTON">
-                    <rect key="frame" x="765" y="0.0" width="100" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81" userLabel="THR_SORT_BUTTON">
+                    <rect key="frame" x="255" y="0.0" width="40" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="yO5-ZL-Chd"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="THR">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="threadsSort" destination="3" eventType="touchUpInside" id="85"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Memory" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="71">
-                    <rect key="frame" x="865" y="0.0" width="159" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" alpha="0.20000000298023224" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="83" userLabel="MEMORY_SORT_BUTTON">
-                    <rect key="frame" x="865" y="0.0" width="159" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83" userLabel="MEM_SORT_BUTTON">
+                    <rect key="frame" x="295" y="0.0" width="80" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="VtS-au-oEn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="MEM">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="memSort" destination="3" eventType="touchUpInside" id="86"/>
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="63" firstAttribute="leading" secondItem="76" secondAttribute="trailing" id="10r-iZ-0q5"/>
+                <constraint firstItem="54" firstAttribute="top" secondItem="3" secondAttribute="top" id="31b-P4-RPS"/>
+                <constraint firstAttribute="bottom" secondItem="54" secondAttribute="bottom" id="4QJ-Fr-yro"/>
+                <constraint firstAttribute="trailing" secondItem="83" secondAttribute="trailing" id="AQI-3h-Doh"/>
+                <constraint firstItem="83" firstAttribute="leading" secondItem="81" secondAttribute="trailing" id="HjT-51-qn1"/>
+                <constraint firstItem="81" firstAttribute="top" secondItem="3" secondAttribute="top" id="I4C-XF-xad"/>
+                <constraint firstItem="54" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="J3A-AY-80N"/>
+                <constraint firstItem="66" firstAttribute="leading" secondItem="72" secondAttribute="trailing" id="JBr-57-cuD"/>
+                <constraint firstItem="83" firstAttribute="top" secondItem="3" secondAttribute="top" id="KeX-ql-1WX"/>
+                <constraint firstAttribute="bottom" secondItem="83" secondAttribute="bottom" id="M9e-An-eKm"/>
+                <constraint firstItem="72" firstAttribute="width" secondItem="63" secondAttribute="width" id="OvI-jg-Fsr"/>
+                <constraint firstItem="63" firstAttribute="width" secondItem="3" secondAttribute="width" multiplier="180:1000" id="UVD-tO-cwL"/>
+                <constraint firstAttribute="bottom" secondItem="72" secondAttribute="bottom" id="VZD-1a-NVc"/>
+                <constraint firstAttribute="bottom" secondItem="76" secondAttribute="bottom" id="Vcj-TE-13e"/>
+                <constraint firstAttribute="bottom" secondItem="66" secondAttribute="bottom" id="Xyf-4n-Kx7"/>
+                <constraint firstItem="72" firstAttribute="leading" secondItem="63" secondAttribute="trailing" id="ZnH-qq-rez"/>
+                <constraint firstItem="81" firstAttribute="leading" secondItem="66" secondAttribute="trailing" id="ceb-Tg-4lC"/>
+                <constraint firstItem="66" firstAttribute="top" secondItem="3" secondAttribute="top" id="dsO-84-ycH"/>
+                <constraint firstAttribute="bottom" secondItem="63" secondAttribute="bottom" id="jxr-I0-nDc"/>
+                <constraint firstItem="72" firstAttribute="top" secondItem="3" secondAttribute="top" id="kDx-dj-Ob9"/>
+                <constraint firstItem="63" firstAttribute="top" secondItem="3" secondAttribute="top" id="kHz-G3-mrp"/>
+                <constraint firstAttribute="bottom" secondItem="81" secondAttribute="bottom" id="piv-TY-SPt"/>
+                <constraint firstItem="76" firstAttribute="leading" secondItem="54" secondAttribute="trailing" id="sD9-g2-9E7"/>
+                <constraint firstItem="76" firstAttribute="top" secondItem="3" secondAttribute="top" id="yNx-oB-w5H"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="UVD-tO-cwL"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="cpuButton" destination="66" id="68"/>
                 <outlet property="groupButton" destination="72" id="95"/>
@@ -177,6 +139,8 @@
                 <outlet property="pidButton" destination="54" id="59"/>
                 <outlet property="threadsButton" destination="81" id="96"/>
                 <outlet property="userButton" destination="63" id="65"/>
+                <outlet property="usrLabelWidthConstraintDynamic" destination="UVD-tO-cwL" id="d5j-Ij-WVd"/>
+                <outlet property="usrLabelWidthConstraintStatic" destination="BGS-Sz-2Qb" id="3zd-cp-lKH"/>
                 <outletCollection property="buttons" destination="76" id="87"/>
                 <outletCollection property="buttons" destination="54" id="88"/>
                 <outletCollection property="buttons" destination="63" id="89"/>
@@ -185,6 +149,7 @@
                 <outletCollection property="buttons" destination="81" id="92"/>
                 <outletCollection property="buttons" destination="83" id="93"/>
             </connections>
+            <point key="canvasLocation" x="79.5" y="362"/>
         </view>
     </objects>
 </document>

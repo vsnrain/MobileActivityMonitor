@@ -20,13 +20,19 @@
     }
     return self;
 }
+
+- (IBAction)changeSort {
+
+}
+
+
 - (IBAction)pidSort {
     if (_sortType == 'P') _sortType = 'p';
     else _sortType = 'P';
     for (UIButton *b in self.buttons){
         b.backgroundColor = [UIColor clearColor];
     }
-    self.pidButton.backgroundColor = [UIColor blueColor];
+    self.pidButton.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
 }
 - (IBAction)nameSort {
     if (_sortType == 'N') _sortType = 'n';
@@ -34,7 +40,7 @@
     for (UIButton *b in self.buttons){
         b.backgroundColor = [UIColor clearColor];
     }
-    self.nameButton.backgroundColor = [UIColor blueColor];
+    self.nameButton.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
 }
 
 - (IBAction)userSort {
@@ -43,7 +49,7 @@
     for (UIButton *b in self.buttons){
         b.backgroundColor = [UIColor clearColor];
     }
-    self.userButton.backgroundColor = [UIColor blueColor];
+    self.userButton.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
 }
 
 - (IBAction)groupSort {
@@ -52,7 +58,7 @@
     for (UIButton *b in self.buttons){
         b.backgroundColor = [UIColor clearColor];
     }
-    self.groupButton.backgroundColor = [UIColor blueColor];
+    self.groupButton.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
 }
 
 - (IBAction)cpuSort {
@@ -61,7 +67,7 @@
     for (UIButton *b in self.buttons){
         b.backgroundColor = [UIColor clearColor];
     }
-    self.cpuButton.backgroundColor = [UIColor blueColor];
+    self.cpuButton.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
 }
 
 - (IBAction)threadsSort {
@@ -70,7 +76,7 @@
     for (UIButton *b in self.buttons){
         b.backgroundColor = [UIColor clearColor];
     }
-    self.threadsButton.backgroundColor = [UIColor blueColor];
+    self.threadsButton.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
 }
 
 - (IBAction)memSort {
@@ -79,7 +85,17 @@
     for (UIButton *b in self.buttons){
         b.backgroundColor = [UIColor clearColor];
     }
-    self.memButton.backgroundColor = [UIColor blueColor];
+    self.memButton.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
+}
+
+-(void) layoutSubviews{
+    if (self.frame.size.width < 400){
+        self.usrLabelWidthConstraintDynamic.active = NO;
+        self.usrLabelWidthConstraintStatic.active = YES;
+    }else{
+        self.usrLabelWidthConstraintDynamic.active = YES;
+        self.usrLabelWidthConstraintStatic.active = NO;
+    }
 }
 
 /*
