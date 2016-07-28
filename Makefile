@@ -3,7 +3,7 @@ ARCHS = arm64 #armv7 armv7s arm64
 SYSROOT = $(THEOS)/sdks/iPhoneOS9.2.sdk
 
 GO_EASY_ON_ME = 1
-ADDITIONAL_OBJCFLAGS = -fobjc-arc
+ADDITIONAL_OBJCFLAGS = -fobjc-arc -DTHEOS
 
 THEOS_LAYOUT_DIR = Layout
 THEOS_STAGING_DIR = Staging
@@ -16,9 +16,12 @@ include $(THEOS)/makefiles/common.mk
 
 APPLICATION_NAME = MobileAM
 MobileAM_FRAMEWORKS = Foundation UIKit CoreGraphics
+
 MobileAM_FILES = $(wildcard MobileAM/*.m)
-MobileAM_RESOURCE_DIRS = MobileAM/Resources $(THEOS_OBJ_DIR_NAME)/$(wildcard *.nib)
+
+MobileAM_RESOURCE_DIRS = MobileAM/Resources
 MobileAM_RESOURCE_FILES = MobileAM/Info.plist
+MobileAM_RESOURCE_FILES += $(THEOS_OBJ_DIR_NAME)/$(wildcard *.nib)
 
 MobileAM_RESOURCE_XIB = $(wildcard MobileAM/UI/*.xib)
 MobileAM_RESOURCE_NIB = $(MobileAM_RESOURCE_XIB:.xib=.nib)

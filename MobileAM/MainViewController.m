@@ -211,7 +211,7 @@
     if(indexPath.row%2==0) cell.contentView.backgroundColor = [UIColor whiteColor];
     else cell.contentView.backgroundColor = [UIColor colorWithRed:245/255.f green:245/255.f blue:250/255.f alpha:1];
     
-#ifndef XCODE
+#ifdef THEOS
     int pidValue = [[[processList objectAtIndex:indexPath.row] objectForKey:@"PID"] intValue];
     NSString *comValue = [[processList objectAtIndex:indexPath.row] objectForKey:@"COMM"];
     
@@ -261,10 +261,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-#ifdef XCODE
-    return 50;
-#endif
+#ifdef THEOS
     return processList.count;
+#else
+    return 10;
+#endif
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
