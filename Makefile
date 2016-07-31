@@ -14,24 +14,24 @@ _THEOS_PLATFORM_DPKG_DEB_COMPRESSION = bzip2
 
 include $(THEOS)/makefiles/common.mk
 
-APPLICATION_NAME = MobileAM
-MobileAM_FRAMEWORKS = Foundation UIKit CoreGraphics
+APPLICATION_NAME = MobileActivityMonitor
+MobileActivityMonitor_FRAMEWORKS = Foundation UIKit CoreGraphics
 
-MobileAM_FILES = $(wildcard MobileAM/*.m)
+MobileActivityMonitor_FILES = $(wildcard MobileAM/*.m)
 
-MobileAM_RESOURCE_DIRS = MobileAM/Resources
-MobileAM_RESOURCE_FILES = MobileAM/Info.plist
-MobileAM_RESOURCE_FILES += $(THEOS_OBJ_DIR_NAME)/$(wildcard *.nib)
+MobileActivityMonitor_RESOURCE_DIRS = MobileAM/Resources
+MobileActivityMonitor_RESOURCE_FILES = MobileAM/Info.plist
+MobileActivityMonitor_RESOURCE_FILES += $(THEOS_OBJ_DIR_NAME)/$(wildcard *.nib)
 
-MobileAM_RESOURCE_XIB = $(wildcard MobileAM/UI/*.xib)
-MobileAM_RESOURCE_NIB = $(MobileAM_RESOURCE_XIB:.xib=.nib)
+MobileActivityMonitor_RESOURCE_XIB = $(wildcard MobileAM/UI/*.xib)
+MobileActivityMonitor_RESOURCE_NIB = $(MobileActivityMonitor_RESOURCE_XIB:.xib=.nib)
 
 %.nib:
 	ibtool --compile $(THEOS_OBJ_DIR_NAME)/$(notdir $@) $*.xib --sdk $(SYSROOT)
 
-all::	$(MobileAM_RESOURCE_NIB)
+all::	$(MobileActivityMonitor_RESOURCE_NIB)
 
 include $(THEOS_MAKE_PATH)/application.mk
 
 after-install::
-	install.exec "killall \"MobileAM\"" || true
+	install.exec "killall \"MobileActivityMonitor\"" || true

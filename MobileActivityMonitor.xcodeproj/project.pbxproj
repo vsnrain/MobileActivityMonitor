@@ -27,7 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B82947041D05AA6000D3F146 /* MobileAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B82947041D05AA6000D3F146 /* MobileActivityMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileActivityMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82947081D05AA6000D3F146 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B829470B1D05AA6000D3F146 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B82947131D05AA6000D3F146 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 		B82947051D05AA6000D3F146 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B82947041D05AA6000D3F146 /* MobileAM.app */,
+				B82947041D05AA6000D3F146 /* MobileActivityMonitor.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,9 +145,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B82947031D05AA6000D3F146 /* MobileAM */ = {
+		B82947031D05AA6000D3F146 /* MobileActivityMonitor */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B829471B1D05AA6000D3F146 /* Build configuration list for PBXNativeTarget "MobileAM" */;
+			buildConfigurationList = B829471B1D05AA6000D3F146 /* Build configuration list for PBXNativeTarget "MobileActivityMonitor" */;
 			buildPhases = (
 				B82947001D05AA6000D3F146 /* Sources */,
 				B82947011D05AA6000D3F146 /* Frameworks */,
@@ -157,9 +157,9 @@
 			);
 			dependencies = (
 			);
-			name = MobileAM;
+			name = MobileActivityMonitor;
 			productName = MobileAM;
-			productReference = B82947041D05AA6000D3F146 /* MobileAM.app */;
+			productReference = B82947041D05AA6000D3F146 /* MobileActivityMonitor.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -177,7 +177,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B82946FF1D05AA6000D3F146 /* Build configuration list for PBXProject "MobileAM" */;
+			buildConfigurationList = B82946FF1D05AA6000D3F146 /* Build configuration list for PBXProject "MobileActivityMonitor" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -190,7 +190,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B82947031D05AA6000D3F146 /* MobileAM */,
+				B82947031D05AA6000D3F146 /* MobileActivityMonitor */,
 			);
 		};
 /* End PBXProject section */
@@ -347,7 +347,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B82946FF1D05AA6000D3F146 /* Build configuration list for PBXProject "MobileAM" */ = {
+		B82946FF1D05AA6000D3F146 /* Build configuration list for PBXProject "MobileActivityMonitor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B82947191D05AA6000D3F146 /* Debug */,
@@ -356,7 +356,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B829471B1D05AA6000D3F146 /* Build configuration list for PBXNativeTarget "MobileAM" */ = {
+		B829471B1D05AA6000D3F146 /* Build configuration list for PBXNativeTarget "MobileActivityMonitor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B829471C1D05AA6000D3F146 /* Debug */,
