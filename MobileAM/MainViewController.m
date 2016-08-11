@@ -286,28 +286,31 @@
         
         NSArray *sortedArray;
         sortedArray = [processList sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-            if (headerView.sortType == SORT_PID_A) return [[a objectForKey:@"PID"] compare:[b objectForKey:@"PID"]];
-            else if (headerView.sortType == SORT_PID_D) return [[b objectForKey:@"PID"] compare:[a objectForKey:@"PID"]];
+            SortType sortType = headerView.sortType;
+            BOOL sortOrderAscending = headerView.sortOrderAscending;
             
-            else if (headerView.sortType == SORT_COM_A) return [[[a objectForKey:@"COMM"] lowercaseString] compare:[[b objectForKey:@"COMM"] lowercaseString]];
-            else if (headerView.sortType == SORT_COM_D) return [[[b objectForKey:@"COMM"] lowercaseString] compare:[[a objectForKey:@"COMM"]lowercaseString]];
+            if ((sortType == SORT_PID) && sortOrderAscending) return [[a objectForKey:@"PID"] compare:[b objectForKey:@"PID"]];
+            else if ((sortType == SORT_PID) && !sortOrderAscending) return [[b objectForKey:@"PID"] compare:[a objectForKey:@"PID"]];
             
-            else if (headerView.sortType == SORT_USR_A) return [[a objectForKey:@"UID"] compare:[b objectForKey:@"UID"]];
-            else if (headerView.sortType == SORT_USR_D) return [[b objectForKey:@"UID"] compare:[a objectForKey:@"UID"]];
+            else if ((sortType == SORT_COM) && sortOrderAscending) return [[[a objectForKey:@"COMM"] lowercaseString] compare:[[b objectForKey:@"COMM"] lowercaseString]];
+            else if ((sortType == SORT_COM) && !sortOrderAscending) return [[[b objectForKey:@"COMM"] lowercaseString] compare:[[a objectForKey:@"COMM"]lowercaseString]];
             
-            else if (headerView.sortType == SORT_GRP_A) return [[a objectForKey:@"GID"] compare:[b objectForKey:@"GID"]];
-            else if (headerView.sortType == SORT_GRP_D) return [[b objectForKey:@"GID"] compare:[a objectForKey:@"GID"]];
+            else if ((sortType == SORT_USR) && sortOrderAscending) return [[a objectForKey:@"UID"] compare:[b objectForKey:@"UID"]];
+            else if ((sortType == SORT_PID) && !sortOrderAscending) return [[b objectForKey:@"UID"] compare:[a objectForKey:@"UID"]];
             
-            else if (headerView.sortType == SORT_CPU_A) return [[a objectForKey:@"TOT_CPU"] compare:[b objectForKey:@"TOT_CPU"]];
-            else if (headerView.sortType == SORT_CPU_D) return [[b objectForKey:@"TOT_CPU"] compare:[a objectForKey:@"TOT_CPU"]];
+            else if ((sortType == SORT_GRP) && sortOrderAscending) return [[a objectForKey:@"GID"] compare:[b objectForKey:@"GID"]];
+            else if ((sortType == SORT_GRP) && !sortOrderAscending) return [[b objectForKey:@"GID"] compare:[a objectForKey:@"GID"]];
             
-            else if (headerView.sortType == SORT_THR_A) return [[a objectForKey:@"THREAD_COUNT"] compare:[b objectForKey:@"THREAD_COUNT"]];
-            else if (headerView.sortType == SORT_THR_D) return [[b objectForKey:@"THREAD_COUNT"] compare:[a objectForKey:@"THREAD_COUNT"]];
+            else if ((sortType == SORT_CPU) && sortOrderAscending) return [[a objectForKey:@"TOT_CPU"] compare:[b objectForKey:@"TOT_CPU"]];
+            else if ((sortType == SORT_CPU) && !sortOrderAscending) return [[b objectForKey:@"TOT_CPU"] compare:[a objectForKey:@"TOT_CPU"]];
             
-            else if (headerView.sortType == SORT_MEM_A) return [[a objectForKey:@"RES_SIZE"] compare:[b objectForKey:@"RES_SIZE"]];
-            else if (headerView.sortType == SORT_MEM_D) return [[b objectForKey:@"RES_SIZE"] compare:[a objectForKey:@"RES_SIZE"]];
+            else if ((sortType == SORT_THR) && sortOrderAscending) return [[a objectForKey:@"THREAD_COUNT"] compare:[b objectForKey:@"THREAD_COUNT"]];
+            else if ((sortType == SORT_THR) && !sortOrderAscending) return [[b objectForKey:@"THREAD_COUNT"] compare:[a objectForKey:@"THREAD_COUNT"]];
             
-            return [[a objectForKey:@"PID"] compare:[b objectForKey:@"PID"]];
+            else if ((sortType == SORT_MEM) && sortOrderAscending) return [[a objectForKey:@"RES_SIZE"] compare:[b objectForKey:@"RES_SIZE"]];
+            else if ((sortType == SORT_MEM) && !sortOrderAscending) return [[b objectForKey:@"RES_SIZE"] compare:[a objectForKey:@"RES_SIZE"]];
+            
+            else return [[a objectForKey:@"PID"] compare:[b objectForKey:@"PID"]];
         }];
         processList = sortedArray;
         

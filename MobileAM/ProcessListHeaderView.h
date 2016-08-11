@@ -12,16 +12,18 @@
 @interface ProcessListHeaderView : UIView
 
 typedef enum {
-    SORT_PID_A, SORT_PID_D,
-    SORT_COM_A, SORT_COM_D,
-    SORT_USR_A, SORT_USR_D,
-    SORT_GRP_A, SORT_GRP_D,
-    SORT_CPU_A, SORT_CPU_D,
-    SORT_THR_A, SORT_THR_D,
-    SORT_MEM_A, SORT_MEM_D
+    SORT_PID,
+    SORT_COM,
+    SORT_USR,
+    SORT_GRP,
+    SORT_CPU,
+    SORT_THR,
+    SORT_MEM
 } SortType;
 
 @property (nonatomic) SortType sortType;
+@property (nonatomic) BOOL sortOrderAscending;
+
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttons;
 
 @property (weak, nonatomic) IBOutlet UIButton *pidButton;

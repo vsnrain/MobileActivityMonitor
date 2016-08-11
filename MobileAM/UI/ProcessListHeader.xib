@@ -57,6 +57,19 @@
                         <action selector="changeSort:" destination="3" eventType="touchUpInside" id="oRL-WE-xCw"/>
                     </connections>
                 </button>
+                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66" userLabel="CPU_SORT_BUTTON">
+                    <rect key="frame" x="195" y="0.0" width="60" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="KGT-vl-usn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="CPU">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="changeSort:" destination="3" eventType="touchUpInside" id="yaO-P4-32d"/>
+                    </connections>
+                </button>
                 <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81" userLabel="THR_SORT_BUTTON">
                     <rect key="frame" x="255" y="0.0" width="40" height="34"/>
                     <constraints>
@@ -81,19 +94,6 @@
                     </state>
                     <connections>
                         <action selector="changeSort:" destination="3" eventType="touchUpInside" id="mcj-kY-UMA"/>
-                    </connections>
-                </button>
-                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66" userLabel="CPU_SORT_BUTTON">
-                    <rect key="frame" x="195" y="0.0" width="60" height="34"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="60" id="KGT-vl-usn"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="CPU">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="changeSort:" destination="3" eventType="touchUpInside" id="yaO-P4-32d"/>
                     </connections>
                 </button>
             </subviews>
