@@ -155,50 +155,70 @@
     }
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if([self.tableView indexPathForSelectedRow].row>=processList.count) [[[UIAlertView alloc] initWithTitle:@"Error" message:@"No process selected" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];;
-    
-    int pid = [[[processList objectAtIndex:[self.tableView indexPathForSelectedRow].row] objectForKey:@"PID"] intValue];
-    
-    BOOL flag = NO;
-    switch (buttonIndex) {
-        case 0:
-            break;
-        case 1:
-            if(kill(pid, 1)!=0) flag = YES;
-            break;
-        case 2:
-            if(kill(pid, 2)!=0) flag = YES;
-            break;
-        case 3:
-            if(kill(pid, 9)!=0) flag = YES;
-            break;
-        case 4:
-            if(kill(pid, 15)!=0) flag = YES;
-            break;
-            
-        default:
-            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Unrecognised signal" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-            break;
-    }
-    
-    if (flag) {
-        NSString *error = [NSString stringWithFormat:@"Failed to kill process with pid: %d", pid];
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:error delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-    }
-}
 - (IBAction) buttonInfo {
-    if([self.tableView indexPathForSelectedRow].row>=processList.count){
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"No process selected" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-    }else{
-        [self performSegueWithIdentifier:@"INFO_SEGUE" sender:self];
-    }
+    //if([self.tableView indexPathForSelectedRow].row>=processList.count){
+    //    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"No process selected" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    //}else{
+    //    [self performSegueWithIdentifier:@"INFO_SEGUE" sender:self];
+    //}
 }
 
 - (IBAction) buttonKill {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Kill" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"HUP", @"SIGINT", @"KILL", @"TERM", nil];
-    [alert show];
+    void (^killActionBlock)(int signal) = ^void(int signal){
+        
+        UIAlertController *errorAlertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}];
+        [errorAlertController addAction:cancelAction];
+        
+        NSIndexPath *selectedPath = [self.tableView indexPathForSelectedRow];
+        if (selectedPath == nil) {
+            errorAlertController.message = @"No process selected";
+            [self presentViewController:errorAlertController animated:YES completion:nil];
+            return;
+        }
+        
+        int ret = 0;
+        int pid = [[[processList objectAtIndex:[self.tableView indexPathForSelectedRow].row] objectForKey:@"PID"] intValue];
+        
+        ret = kill(pid, signal);
+        
+        if(ret != 0){
+            NSString *errorString = [NSString stringWithFormat:@"Failed to kill process with pid: %d", pid];
+            errorAlertController.message = errorString;
+            [self presentViewController:errorAlertController animated:YES completion:nil];
+            return;
+        }
+    };
+    
+    UIAlertAction *hupAction = [UIAlertAction actionWithTitle:@"HUP (1)" style:UIAlertActionStyleDestructive
+                                            handler:^(UIAlertAction *action) {
+                                                killActionBlock(1);
+                                            }];
+    UIAlertAction *sigintAction = [UIAlertAction actionWithTitle:@"INT (2)" style:UIAlertActionStyleDestructive
+                                            handler:^(UIAlertAction *action) {
+                                                killActionBlock(2);
+                                            }];
+    UIAlertAction *killAction = [UIAlertAction actionWithTitle:@"KILL (9)" style:UIAlertActionStyleDestructive
+                                            handler:^(UIAlertAction *action) {
+                                                killActionBlock(9);
+                                            }];
+    UIAlertAction *termAction = [UIAlertAction actionWithTitle:@"TERM (15)" style:UIAlertActionStyleDestructive
+                                            handler:^(UIAlertAction *action) {
+                                                killActionBlock(15);
+                                            }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
+                                            handler:^(UIAlertAction *action) {}];
+    
+    [alertController addAction:hupAction];
+    [alertController addAction:sigintAction];
+    [alertController addAction:killAction];
+    [alertController addAction:termAction];
+    [alertController addAction:cancelAction];
+    [alertController setModalPresentationStyle:UIModalPresentationPopover];
+    [self presentViewController:alertController animated:YES completion:nil];
+     
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

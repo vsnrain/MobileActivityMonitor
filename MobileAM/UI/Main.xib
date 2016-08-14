@@ -39,8 +39,16 @@
                     <items>
                         <navigationItem title="Title" id="liS-cv-9bR">
                             <leftBarButtonItems>
-                                <barButtonItem title="Kill" id="DKB-xW-Hea"/>
-                                <barButtonItem title="Info" id="xda-3A-pTo"/>
+                                <barButtonItem title="Kill" id="DKB-xW-Hea">
+                                    <connections>
+                                        <action selector="buttonKill" destination="-1" id="DP8-HD-YZ5"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem title="Info" id="xda-3A-pTo">
+                                    <connections>
+                                        <action selector="buttonInfo" destination="-1" id="axb-6y-EDm"/>
+                                    </connections>
+                                </barButtonItem>
                             </leftBarButtonItems>
                         </navigationItem>
                     </items>
