@@ -79,6 +79,10 @@
     updateTimer = [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(refresh) userInfo:nil repeats:NO];
 }
 
+- (void) viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
+    [self.tableView setNeedsLayout];
+}
+
 - (void)viewWillLayoutSubviews{
     
     if (bottomViewActivated){
@@ -192,6 +196,7 @@
 }
 
 - (IBAction) buttonKill {
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Kill" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"HUP", @"SIGINT", @"KILL", @"TERM", nil];
     [alert show];
 }
@@ -203,6 +208,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ProcessListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProcessListCellID"];
+    
+    //cell.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    
     return cell;
 }
 
@@ -228,14 +236,14 @@
     cell.pidLabel.text = [NSString stringWithFormat:@"%d", pidValue];
     cell.comLabel.text = comValue;
     
-    if ( (cell.usrLabel.frame.size.width > 80) && (cell.usrLabel.frame.size.width > 80) ){
+    if ( (cell.usrLabel.frame.size.width > 80) && (cell.grpLabel.frame.size.width > 80) ){
         cell.usrLabel.text = [NSString stringWithFormat:@"%s (%d)", uidString, uidValue];
         cell.grpLabel.text = [NSString stringWithFormat:@"%s (%d)", gidString, gidValue];
     }else{
         cell.usrLabel.text = [NSString stringWithFormat:@"%d", uidValue];
         cell.grpLabel.text = [NSString stringWithFormat:@"%d", gidValue];
     }
-     
+    
     cell.cpuLabel.text = [NSString stringWithFormat:@"%.2f", cpuValue];
     cell.thrLabel.text = [NSString stringWithFormat:@"%d", thrValue];
     cell.memLabel.text = [NSString stringWithFormat:@"%.2f MB", memValue];
@@ -248,7 +256,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return  34.0;
+    return  36.0;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -257,14 +265,14 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return  34.0;
+    return  36.0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 #ifdef THEOS
     return processList.count;
 #else
-    return 10;
+    return 0;
 #endif
 }
 
@@ -318,13 +326,13 @@
             NSIndexPath *index = [self.tableView indexPathForSelectedRow];
             [self.tableView reloadData];
             
-            [self.tableView selectRowAtIndexPath:index animated:NO scrollPosition:nil];
+            [self.tableView selectRowAtIndexPath:index animated:NO scrollPosition:0];
             
             self.cpuLabel.text = [[eng.sys objectForKey:@"SYS_CPU"] stringValue];
-            self.procLabel.text = [[NSNumber numberWithInt:processList.count] stringValue];
+            self.procLabel.text = [[NSNumber numberWithUnsignedLong:processList.count] stringValue];
             self.thrLabel.text = [[eng.sys objectForKey:@"TOT_THR"] stringValue];
             
-            NSLog(@"Data reloaded");
+            //NSLog(@"Data reloaded");
             updateTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(refresh) userInfo:nil repeats:NO];
         });
     });

@@ -10,6 +10,11 @@
 
 @interface ProcessListCell : UITableViewCell
 
+@property (strong, nonatomic) NSString *usrLabelShort;
+@property (strong, nonatomic) NSString *usrLabelLong;
+@property (strong, nonatomic) NSString *grpLabelShort;
+@property (strong, nonatomic) NSString *grpLabelLong;
+
 @property (nonatomic, strong) IBOutlet UILabel *pidLabel;
 @property (nonatomic, strong) IBOutlet UILabel *comLabel;
 @property (nonatomic, strong) IBOutlet UILabel *usrLabel;
@@ -20,7 +25,12 @@
 
 @property (nonatomic, strong) IBOutlet UIImageView *procIcon;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *usrLabelWidthConstraintStatic;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *usrLabelWidthConstraintDynamic;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *pidWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *comWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *usrWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *grpWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cpuWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *thrWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *memWidthConstraint;
 
 @end

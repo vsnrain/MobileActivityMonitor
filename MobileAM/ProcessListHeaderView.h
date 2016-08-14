@@ -34,7 +34,12 @@ typedef enum {
 @property (weak, nonatomic) IBOutlet UIButton *thrButton;
 @property (weak, nonatomic) IBOutlet UIButton *memButton;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *usrLabelWidthConstraintStatic;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *usrLabelWidthConstraintDynamic;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *pidWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *comWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *usrWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *grpWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cpuWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *thrWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *memWidthConstraint;
 
 @end

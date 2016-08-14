@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,9 +11,9 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54" userLabel="PID_SORT_BUTTON">
-                    <rect key="frame" x="0.0" y="0.0" width="50" height="34"/>
+                    <rect key="frame" x="0.0" y="0.0" width="40" height="34"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="50" id="ozc-IK-2wu"/>
+                        <constraint firstAttribute="width" constant="40" id="DZe-OL-Dvh"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="PID">
@@ -25,7 +24,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76" userLabel="COM_SORT_BUTTON">
-                    <rect key="frame" x="50" y="0.0" width="64.5" height="34"/>
+                    <rect key="frame" x="40" y="0.0" width="74.5" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="COM">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,7 +36,7 @@
                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63" userLabel="USR_SORT_BUTTON">
                     <rect key="frame" x="114.5" y="0.0" width="40" height="34"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="40" id="BGS-Sz-2Qb"/>
+                        <constraint firstAttribute="width" constant="40" id="oJe-Mz-ECP"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="USR">
@@ -48,7 +47,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72" userLabel="GRP_SORT_BUTTON">
-                    <rect key="frame" x="154.5" y="0.0" width="40.5" height="34"/>
+                    <rect key="frame" x="154.5" y="0.0" width="40" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40.5" id="D1d-Pf-SeB"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="GRP">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -60,7 +62,7 @@
                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66" userLabel="CPU_SORT_BUTTON">
                     <rect key="frame" x="195" y="0.0" width="60" height="34"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="60" id="KGT-vl-usn"/>
+                        <constraint firstAttribute="width" constant="60" id="IdC-Vv-sHM"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="CPU">
@@ -73,7 +75,7 @@
                 <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81" userLabel="THR_SORT_BUTTON">
                     <rect key="frame" x="255" y="0.0" width="40" height="34"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="40" id="yO5-ZL-Chd"/>
+                        <constraint firstAttribute="width" constant="40" id="iIT-nc-0RU"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="THR">
@@ -86,7 +88,7 @@
                 <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83" userLabel="MEM_SORT_BUTTON">
                     <rect key="frame" x="295" y="0.0" width="80" height="34"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="80" id="VtS-au-oEn"/>
+                        <constraint firstAttribute="width" constant="80" id="8Lh-AP-P7L"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="MEM">
@@ -109,8 +111,6 @@
                 <constraint firstItem="66" firstAttribute="leading" secondItem="72" secondAttribute="trailing" id="JBr-57-cuD"/>
                 <constraint firstItem="83" firstAttribute="top" secondItem="3" secondAttribute="top" id="KeX-ql-1WX"/>
                 <constraint firstAttribute="bottom" secondItem="83" secondAttribute="bottom" id="M9e-An-eKm"/>
-                <constraint firstItem="72" firstAttribute="width" secondItem="63" secondAttribute="width" id="OvI-jg-Fsr"/>
-                <constraint firstItem="63" firstAttribute="width" secondItem="3" secondAttribute="width" multiplier="180:1000" id="UVD-tO-cwL"/>
                 <constraint firstAttribute="bottom" secondItem="72" secondAttribute="bottom" id="VZD-1a-NVc"/>
                 <constraint firstAttribute="bottom" secondItem="76" secondAttribute="bottom" id="Vcj-TE-13e"/>
                 <constraint firstAttribute="bottom" secondItem="66" secondAttribute="bottom" id="Xyf-4n-Kx7"/>
@@ -126,21 +126,20 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="UVD-tO-cwL"/>
-                </mask>
-            </variation>
             <connections>
                 <outlet property="comButton" destination="76" id="ajZ-Ja-VUe"/>
                 <outlet property="cpuButton" destination="66" id="68"/>
+                <outlet property="cpuWidthConstraint" destination="IdC-Vv-sHM" id="ysQ-GW-v4l"/>
                 <outlet property="grpButton" destination="72" id="xME-cv-gof"/>
+                <outlet property="grpWidthConstraint" destination="D1d-Pf-SeB" id="T6B-XI-KPq"/>
                 <outlet property="memButton" destination="83" id="97"/>
+                <outlet property="memWidthConstraint" destination="8Lh-AP-P7L" id="gc5-fv-BNd"/>
                 <outlet property="pidButton" destination="54" id="59"/>
+                <outlet property="pidWidthConstraint" destination="DZe-OL-Dvh" id="wKa-FG-9LI"/>
                 <outlet property="thrButton" destination="81" id="1TM-Pi-Fgo"/>
+                <outlet property="thrWidthConstraint" destination="iIT-nc-0RU" id="MMO-fa-Q9d"/>
                 <outlet property="usrButton" destination="63" id="pBE-F0-JKN"/>
-                <outlet property="usrLabelWidthConstraintDynamic" destination="UVD-tO-cwL" id="d5j-Ij-WVd"/>
-                <outlet property="usrLabelWidthConstraintStatic" destination="BGS-Sz-2Qb" id="3zd-cp-lKH"/>
+                <outlet property="usrWidthConstraint" destination="oJe-Mz-ECP" id="YsH-8X-R69"/>
                 <outletCollection property="buttons" destination="76" id="87"/>
                 <outletCollection property="buttons" destination="54" id="88"/>
                 <outletCollection property="buttons" destination="63" id="89"/>

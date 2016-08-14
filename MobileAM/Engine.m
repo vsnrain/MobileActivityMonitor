@@ -33,11 +33,11 @@ static UITextView *logView;
     
     
     //======================================= GET SYSCTL PROCS ===========================================//
-    kern_return_t	kr;
+    //kern_return_t	kr;
     int mibname[4] = { CTL_KERN, KERN_PROC, KERN_PROC_ALL, 0};
     struct kinfo_proc *procs;
     size_t buffersize = 0;
-    int count;
+    unsigned long count;
     
     int err = sysctl(mibname, 4, NULL, &buffersize, NULL, 0);
     if (err != 0){
@@ -104,8 +104,8 @@ static UITextView *logView;
         return nil;
     }else{
         
-        [res setObject:[NSNumber numberWithUnsignedInt:info.resident_size] forKey:@"RES_SIZE"];
-        [res setObject:[NSNumber numberWithUnsignedInt:info.virtual_size] forKey:@"VIR_SIZE"];
+        [res setObject:[NSNumber numberWithUnsignedLong:info.resident_size] forKey:@"RES_SIZE"];
+        [res setObject:[NSNumber numberWithUnsignedLong:info.virtual_size] forKey:@"VIR_SIZE"];
         //[procInfo setObject:[NSNumber numberWithUnsignedInt:info.suspend_count] forKey:@"SUSPEND_COUNT"];
         [res setObject:[NSNumber numberWithUnsignedInt:info.user_time.seconds] forKey:@"USER_SEC"];
         [res setObject:[NSNumber numberWithUnsignedInt:info.user_time.microseconds] forKey:@"USER_MSEC"];

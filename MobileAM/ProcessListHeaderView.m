@@ -18,6 +18,14 @@
         self.sortType = SORT_PID;
         self.sortOrderAscending = YES;
         self.pidButton.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
+        
+        self.pidWidthConstraint.constant = 60;
+        //self.comWidthConstraint.constant = normWidth * 40;
+        self.usrWidthConstraint.constant = 0;
+        self.grpWidthConstraint.constant = 0;
+        self.cpuWidthConstraint.constant = 80;
+        self.thrWidthConstraint.constant = 0;
+        self.memWidthConstraint.constant = 80;
     }
     return self;
 }
@@ -78,12 +86,27 @@
 }
 
 - (void)layoutSubviews{
+    
+    //int totalWidth = self.frame.size.width;
+    //float normWidth = totalWidth/100.0f;
+    
     if (self.frame.size.width < 500){
-        self.usrLabelWidthConstraintDynamic.active = NO;
-        self.usrLabelWidthConstraintStatic.active = YES;
+        self.pidWidthConstraint.constant = 60;
+        //self.comWidthConstraint.constant = normWidth * 40;
+        self.usrWidthConstraint.constant = 0;
+        self.grpWidthConstraint.constant = 0;
+        self.cpuWidthConstraint.constant = 80;
+        self.thrWidthConstraint.constant = 0;
+        self.memWidthConstraint.constant = 80;
+        
     }else{
-        self.usrLabelWidthConstraintDynamic.active = YES;
-        self.usrLabelWidthConstraintStatic.active = NO;
+        self.pidWidthConstraint.constant = 60;
+        //self.comWidthConstraint.constant = normWidth * 40;
+        self.usrWidthConstraint.constant = 120;
+        self.grpWidthConstraint.constant = 120;
+        self.cpuWidthConstraint.constant = 80;
+        self.thrWidthConstraint.constant = 40;
+        self.memWidthConstraint.constant = 80;
     }
 }
 

@@ -20,20 +20,35 @@
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated{
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
 }
 
--(void) layoutSubviews{
+- (void)layoutSubviews{
+    
+    //int totalWidth = self.frame.size.width;
+    //float normWidth = totalWidth/100.0f;
+    
     if (self.frame.size.width < 500){
-        self.usrLabelWidthConstraintDynamic.active = NO;
-        self.usrLabelWidthConstraintStatic.active = YES;
+        
+        self.pidWidthConstraint.constant = 60;
+        //self.comWidthConstraint.constant = normWidth * 40;
+        self.usrWidthConstraint.constant = 0;
+        self.grpWidthConstraint.constant = 0;
+        self.cpuWidthConstraint.constant = 80;
+        self.thrWidthConstraint.constant = 0;
+        self.memWidthConstraint.constant = 80;
+        
     }else{
-        self.usrLabelWidthConstraintDynamic.active = YES;
-        self.usrLabelWidthConstraintStatic.active = NO;
+        self.pidWidthConstraint.constant = 60;
+        //self.comWidthConstraint.constant = normWidth * 40;
+        self.usrWidthConstraint.constant = 20;
+        self.grpWidthConstraint.constant = 20;
+        self.cpuWidthConstraint.constant = 80;
+        self.thrWidthConstraint.constant = 40;
+        self.memWidthConstraint.constant = 80;
     }
 }
 
