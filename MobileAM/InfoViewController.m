@@ -95,8 +95,8 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated{
-    if (self.interfaceOrientation==UIInterfaceOrientationPortrait||self.interfaceOrientation==UIInterfaceOrientationPortraitUpsideDown) self.view.superview.frame = CGRectMake(14, 212, 740, 600);
-    else self.view.superview.frame = CGRectMake(94, 142, 600, 740);
+    //if (self.interfaceOrientation==UIInterfaceOrientationPortrait||self.interfaceOrientation==UIInterfaceOrientationPortraitUpsideDown) self.view.superview.frame = CGRectMake(14, 212, 740, 600);
+    //else self.view.superview.frame = CGRectMake(94, 142, 600, 740);
     self.view.superview.bounds = CGRectMake(0, 0, 740, 600);
 }
 
@@ -106,7 +106,7 @@
 }
 
 - (IBAction)doneButton:(UIBarButtonItem *)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    //[self dismissModalViewControllerAnimated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

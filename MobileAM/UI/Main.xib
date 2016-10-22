@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
@@ -13,6 +14,8 @@
                 <outlet property="bottomToolbar" destination="n42-qV-BXI" id="uA2-Gx-uWF"/>
                 <outlet property="bottomView" destination="GuP-rm-Ob5" id="72z-pd-yhg"/>
                 <outlet property="bottomViewConstraint" destination="9tJ-61-alx" id="qqJ-HQ-4IQ"/>
+                <outlet property="infoButton" destination="xda-3A-pTo" id="tgp-bz-6Ul"/>
+                <outlet property="killButton" destination="DKB-xW-Hea" id="8RW-Af-1Hx"/>
                 <outlet property="tableView" destination="nrr-ed-GoR" id="Ram-YG-oK1"/>
                 <outlet property="topBar" destination="XCZ-Kn-YJL" id="NNA-ds-tJb"/>
                 <outlet property="view" destination="PSU-aI-NgR" id="oZ7-GT-R5Y"/>
@@ -24,15 +27,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nrr-ed-GoR" userLabel="TableView">
-                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="WqI-oL-WOf"/>
                         <outlet property="delegate" destination="-1" id="HEm-de-CF8"/>
                     </connections>
                 </tableView>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XCZ-Kn-YJL" userLabel="NavigationBar">
-                    <rect key="frame" x="0.0" y="0.0" width="1024" height="64"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="0BC-pO-e9N"/>
                     </constraints>
@@ -57,7 +58,6 @@
                     </connections>
                 </navigationBar>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n42-qV-BXI">
-                    <rect key="frame" x="0.0" y="724" width="1024" height="44"/>
                     <items>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="vJl-wc-Xz0"/>
                         <barButtonItem style="plain" id="yjA-Tt-cRF">
@@ -84,23 +84,25 @@
                     </items>
                 </toolbar>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GuP-rm-Ob5" userLabel="BottomView">
-                    <rect key="frame" x="0.0" y="768" width="1024" height="153.5"/>
                     <subviews>
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jCn-Un-gLk">
-                            <rect key="frame" x="8" y="8" width="51" height="31"/>
+                            <frame key="frameInset" minX="8" minY="8" width="51" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </switch>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QiL-0e-who">
-                            <rect key="frame" x="8" y="53" width="121" height="29"/>
+                            <frame key="frameInset" minX="8" minY="53" width="121" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="First"/>
                                 <segment title="Second"/>
                             </segments>
                         </segmentedControl>
                         <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="euZ-R8-p8u">
-                            <rect key="frame" x="9" y="99" width="118" height="31"/>
+                            <frame key="frameInset" minX="9" minY="99" width="118" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </slider>
                     </subviews>
-                    <color key="backgroundColor" red="0.0067950606769999998" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.0067950606769999998" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
             </subviews>
             <constraints>

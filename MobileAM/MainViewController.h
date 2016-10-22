@@ -15,6 +15,8 @@
 @interface MainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *topBar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *killButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 // BOTTOM VIEW

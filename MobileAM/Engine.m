@@ -62,10 +62,11 @@ static UITextView *logView;
     int tot_thr = 0;
     
     for (int i = 0; i < count; i++) {
-        NSMutableDictionary *procInfo = [[NSMutableDictionary alloc] init];
+        NSMutableDictionary *procInfo;
         
         procInfo = [[Engine taskinfoForPid:procs[i].kp_proc.p_pid] mutableCopy];
         if(!procInfo) procInfo = [[NSMutableDictionary alloc] init];
+        
         tot_cpu += [[procInfo objectForKey:@"TOT_CPU"] intValue];
         tot_thr += [[procInfo objectForKey:@"TOT_THR"] intValue];
         

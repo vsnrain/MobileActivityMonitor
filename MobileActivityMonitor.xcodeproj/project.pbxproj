@@ -18,6 +18,7 @@
 		B82947351D05AEDD00D3F146 /* ProcessListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B82947321D05AEDD00D3F146 /* ProcessListCell.m */; };
 		B82947361D05AEDD00D3F146 /* ThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B82947331D05AEDD00D3F146 /* ThreadCell.m */; };
 		B829474B1D05B29900D3F146 /* ProcessListHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B829474A1D05B29900D3F146 /* ProcessListHeader.xib */; };
+		B88DB2361DBC0D3A00E79C9C /* Icon_Empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B88DB2351DBC0D3A00E79C9C /* Icon_Empty@2x.png */; };
 		B8950FFA1D4AA13E0004B26B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8950FF91D4AA13E0004B26B /* Info.plist */; };
 		B8983B991D33AE3100DDCBEA /* ProcessDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8983B981D33AE3100DDCBEA /* ProcessDetail.xib */; };
 		B8983B9B1D33AE7200DDCBEA /* ProcessDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8983B9A1D33AE7200DDCBEA /* ProcessDetailCell.xib */; };
@@ -50,6 +51,7 @@
 		B82947331D05AEDD00D3F146 /* ThreadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadCell.m; sourceTree = "<group>"; };
 		B829474A1D05B29900D3F146 /* ProcessListHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessListHeader.xib; sourceTree = "<group>"; };
 		B86CD2921DBBD957005DE64F /* MobileActivityMonitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = MobileActivityMonitor.entitlements; path = ../MobileActivityMonitor.entitlements; sourceTree = "<group>"; };
+		B88DB2351DBC0D3A00E79C9C /* Icon_Empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Empty@2x.png"; sourceTree = "<group>"; };
 		B8950FF91D4AA13E0004B26B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Info.plist; sourceTree = "<group>"; };
 		B8983B981D33AE3100DDCBEA /* ProcessDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessDetail.xib; sourceTree = "<group>"; };
 		B8983B9A1D33AE7200DDCBEA /* ProcessDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessDetailCell.xib; sourceTree = "<group>"; };
@@ -73,8 +75,8 @@
 			isa = PBXGroup;
 			children = (
 				B82947061D05AA6000D3F146 /* MobileAM */,
-				B82947051D05AA6000D3F146 /* Products */,
 				B86CD2931DBBD959005DE64F /* Frameworks */,
+				B82947051D05AA6000D3F146 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +130,7 @@
 		B82947371D05B28F00D3F146 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B88DB2351DBC0D3A00E79C9C /* Icon_Empty@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -178,12 +181,13 @@
 		B82946FC1D05AA6000D3F146 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = vsnrain;
 				TargetAttributes = {
 					B82947031D05AA6000D3F146 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = K8KPM6B64V;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 0;
@@ -218,6 +222,7 @@
 				B829474B1D05B29900D3F146 /* ProcessListHeader.xib in Resources */,
 				B82947141D05AA6000D3F146 /* Assets.xcassets in Resources */,
 				B8983B9B1D33AE7200DDCBEA /* ProcessDetailCell.xib in Resources */,
+				B88DB2361DBC0D3A00E79C9C /* Icon_Empty@2x.png in Resources */,
 				B8983B991D33AE3100DDCBEA /* ProcessDetail.xib in Resources */,
 				B8BACF7A1D29504100FF309B /* Main.xib in Resources */,
 				B8BACF7C1D29533600FF309B /* ProcessListCell.xib in Resources */,
@@ -262,8 +267,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -304,8 +311,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -335,6 +344,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MobileActivityMonitor.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = K8KPM6B64V;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -354,6 +365,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MobileActivityMonitor.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = K8KPM6B64V;
 				GCC_PREPROCESSOR_DEFINITIONS = "XCODE=1";
 				INFOPLIST_FILE = "$(SRCROOT)/MobileAM/Info-xcode.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

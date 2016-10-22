@@ -18,6 +18,8 @@
     NSTimer *updateTimer;
     NSTimer *memTimer;
     
+    NSInteger selectedPid;
+    
     Engine *eng;
 }
 
@@ -47,6 +49,8 @@
     
     headerView = [[[NSBundle mainBundle] loadNibNamed:@"ProcessListHeader" owner:self options:nil] objectAtIndex:0];
     headerView.pidButton.backgroundColor = [UIColor colorWithRed:20/255.f green:125/255.f blue:250/255.f alpha:1];
+    headerView.sortType = SORT_PID;
+    headerView.sortOrderAscending = YES;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ProcessListCell" bundle:nil] forCellReuseIdentifier:@"ProcessListCellID"];
     
@@ -72,11 +76,13 @@
     
     // TABLE DATA
     processList = [[NSArray alloc] init];
+    selectedPid = 0;
     
     eng = [[Engine alloc] init];
     Engine.log = self.log;
     
-    updateTimer = [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(refresh) userInfo:nil repeats:NO];
+    updateTimer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(refresh) userInfo:nil repeats:YES];
+    [self refresh];
 }
 
 - (void) viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
@@ -113,7 +119,80 @@
     // Dispose of any resources that can be recreated.
 }
 
-//////////////////////////////////////////////////// BUTTONS ///////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// TABLEVIEW ///////////////////////////////////////////////////////////////
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    ProcessListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProcessListCellID"];
+    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    
+    if(indexPath.row%2==0) cell.contentView.backgroundColor = [UIColor whiteColor];
+    else cell.contentView.backgroundColor = [UIColor colorWithRed:245/255.f green:245/255.f blue:250/255.f alpha:1];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(ProcessListCell *)cell forRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    
+    int pidValue = [[[processList objectAtIndex:indexPath.row] objectForKey:@"PID"] intValue];
+    NSString *comValue = [[processList objectAtIndex:indexPath.row] objectForKey:@"COMM"];
+    
+    int uidValue = [[[processList objectAtIndex:indexPath.row] objectForKey:@"UID"] intValue];
+    char *uidString = user_from_uid(uidValue, 0);
+    
+    int gidValue = [[[processList objectAtIndex:indexPath.row] objectForKey:@"GID"] intValue];
+    char *gidString = group_from_gid(gidValue, 0);
+    
+    double cpuValue = [[[processList objectAtIndex:indexPath.row] objectForKey:@"TOT_CPU"] floatValue];
+    int thrValue = [[[processList objectAtIndex:indexPath.row] objectForKey:@"THREAD_COUNT"] intValue];
+    double memValue = [[[processList objectAtIndex:indexPath.row] objectForKey:@"RES_SIZE"] intValue]/(float) 1024*1024 ;
+    
+    cell.pidLabel.text = [NSString stringWithFormat:@"%d", pidValue];
+    cell.comLabel.text = comValue;
+    
+    if ( (cell.usrLabel.frame.size.width > 80) && (cell.grpLabel.frame.size.width > 80) ){
+        cell.usrLabel.text = [NSString stringWithFormat:@"%s (%d)", uidString, uidValue];
+        cell.grpLabel.text = [NSString stringWithFormat:@"%s (%d)", gidString, gidValue];
+    }else{
+        cell.usrLabel.text = [NSString stringWithFormat:@"%d", uidValue];
+        cell.grpLabel.text = [NSString stringWithFormat:@"%d", gidValue];
+    }
+    
+    cell.cpuLabel.text = [NSString stringWithFormat:@"%.2f", cpuValue];
+    cell.thrLabel.text = [NSString stringWithFormat:@"%d", thrValue];
+    cell.memLabel.text = [NSString stringWithFormat:@"%.2f MB", memValue];
+    cell.procIcon.image = [UIImage imageNamed:@"Icon_Empty.png"];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return  36.0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 0) return headerView;
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return  36.0;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return processList.count;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSDictionary *p = [processList objectAtIndex:indexPath.row];
+    selectedPid = [[p objectForKey:@"PID"] intValue];
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////// BUTTONS ////////////////////////////////////////////////////////////////
 
 - (IBAction) bottomButtonPressed:(UIButton *)sender {
     
@@ -164,7 +243,12 @@
 }
 
 - (IBAction) buttonKill {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    //int pid = [[[processList objectAtIndex:[self.tableView indexPathForSelectedRow].row] objectForKey:@"PID"] intValue];
+    int pid = (int)selectedPid;
+    NSString *msg = [NSString stringWithFormat:@"PID: %d", pid];
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:msg preferredStyle:UIAlertControllerStyleActionSheet];
+    alertController.popoverPresentationController.barButtonItem = self.killButton;
     
     void (^killActionBlock)(int signal) = ^void(int signal){
         
@@ -180,8 +264,6 @@
         }
         
         int ret = 0;
-        int pid = [[[processList objectAtIndex:[self.tableView indexPathForSelectedRow].row] objectForKey:@"PID"] intValue];
-        
         ret = kill(pid, signal);
         
         if(ret != 0){
@@ -193,23 +275,23 @@
     };
     
     UIAlertAction *hupAction = [UIAlertAction actionWithTitle:@"HUP (1)" style:UIAlertActionStyleDestructive
-                                            handler:^(UIAlertAction *action) {
-                                                killActionBlock(1);
-                                            }];
+                                                      handler:^(UIAlertAction *action) {
+                                                          killActionBlock(1);
+                                                      }];
     UIAlertAction *sigintAction = [UIAlertAction actionWithTitle:@"INT (2)" style:UIAlertActionStyleDestructive
-                                            handler:^(UIAlertAction *action) {
-                                                killActionBlock(2);
-                                            }];
+                                                         handler:^(UIAlertAction *action) {
+                                                             killActionBlock(2);
+                                                         }];
     UIAlertAction *killAction = [UIAlertAction actionWithTitle:@"KILL (9)" style:UIAlertActionStyleDestructive
-                                            handler:^(UIAlertAction *action) {
-                                                killActionBlock(9);
-                                            }];
+                                                       handler:^(UIAlertAction *action) {
+                                                           killActionBlock(9);
+                                                       }];
     UIAlertAction *termAction = [UIAlertAction actionWithTitle:@"TERM (15)" style:UIAlertActionStyleDestructive
-                                            handler:^(UIAlertAction *action) {
-                                                killActionBlock(15);
-                                            }];
+                                                       handler:^(UIAlertAction *action) {
+                                                           killActionBlock(15);
+                                                       }];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
-                                            handler:^(UIAlertAction *action) {}];
+                                                         handler:^(UIAlertAction *action) {}];
     
     [alertController addAction:hupAction];
     [alertController addAction:sigintAction];
@@ -218,86 +300,7 @@
     [alertController addAction:cancelAction];
     [alertController setModalPresentationStyle:UIModalPresentationPopover];
     [self presentViewController:alertController animated:YES completion:nil];
-     
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////// TABLEVIEW ///////////////////////////////////////////////////////////////
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    ProcessListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProcessListCellID"];
     
-    //cell.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(ProcessListCell *)cell forRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-    
-    if(indexPath.row%2==0) cell.contentView.backgroundColor = [UIColor whiteColor];
-    else cell.contentView.backgroundColor = [UIColor colorWithRed:245/255.f green:245/255.f blue:250/255.f alpha:1];
-    
-#ifdef THEOS
-    int pidValue = [[[processList objectAtIndex:indexPath.row] objectForKey:@"PID"] intValue];
-    NSString *comValue = [[processList objectAtIndex:indexPath.row] objectForKey:@"COMM"];
-    
-    int uidValue = [[[processList objectAtIndex:indexPath.row] objectForKey:@"UID"] intValue];
-    char *uidString = user_from_uid(uidValue, 0);
-    
-    int gidValue = [[[processList objectAtIndex:indexPath.row] objectForKey:@"GID"] intValue];
-    char *gidString = group_from_gid(gidValue, 0);
-    
-    double cpuValue = [[[processList objectAtIndex:indexPath.row] objectForKey:@"TOT_CPU"] floatValue];
-    int thrValue = [[[processList objectAtIndex:indexPath.row] objectForKey:@"THREAD_COUNT"] intValue];
-    double memValue = [[[processList objectAtIndex:indexPath.row] objectForKey:@"RES_SIZE"] intValue]/(float) 1024*1024 ;
-    
-    cell.pidLabel.text = [NSString stringWithFormat:@"%d", pidValue];
-    cell.comLabel.text = comValue;
-    
-    if ( (cell.usrLabel.frame.size.width > 80) && (cell.grpLabel.frame.size.width > 80) ){
-        cell.usrLabel.text = [NSString stringWithFormat:@"%s (%d)", uidString, uidValue];
-        cell.grpLabel.text = [NSString stringWithFormat:@"%s (%d)", gidString, gidValue];
-    }else{
-        cell.usrLabel.text = [NSString stringWithFormat:@"%d", uidValue];
-        cell.grpLabel.text = [NSString stringWithFormat:@"%d", gidValue];
-    }
-    
-    cell.cpuLabel.text = [NSString stringWithFormat:@"%.2f", cpuValue];
-    cell.thrLabel.text = [NSString stringWithFormat:@"%d", thrValue];
-    cell.memLabel.text = [NSString stringWithFormat:@"%.2f MB", memValue];
-#endif
-    
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return  36.0;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if (section == 0) return headerView;
-    return nil;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return  36.0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-#ifdef THEOS
-    return processList.count;
-#else
-    return 0;
-#endif
-}
-
-- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -308,12 +311,21 @@
     dispatch_queue_t refreshQueue = dispatch_queue_create("Data Refresh", NULL);
     dispatch_async(refreshQueue, ^{
         
+#ifdef THEOS
         [eng getProcs];
-        
         processList = eng.proc;
-        
-        NSArray *sortedArray;
-        sortedArray = [processList sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+#else
+        NSMutableDictionary *sampleProcess = [[NSMutableDictionary alloc] init];
+        [sampleProcess setObject:[NSNumber numberWithInt:12345] forKey:@"PID"];
+        [sampleProcess setObject:[NSNumber numberWithInt:500] forKey:@"UID"];
+        [sampleProcess setObject:[NSNumber numberWithInt:500] forKey:@"GID"];
+        [sampleProcess setObject:@"Sample Process" forKey:@"COMM"];
+        [sampleProcess setObject:[NSNumber numberWithInt:16] forKey:@"TOT_CPU"];
+        [sampleProcess setObject:[NSNumber numberWithInt:3] forKey:@"THREAD_COUNT"];
+        [sampleProcess setObject:[NSNumber numberWithInt:3096000] forKey:@"RES_SIZE"];
+        processList = [NSArray arrayWithObjects:[sampleProcess copy], [sampleProcess copy], [sampleProcess copy], nil];
+#endif
+        processList = [processList sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
             SortType sortType = headerView.sortType;
             BOOL sortOrderAscending = headerView.sortOrderAscending;
             
@@ -321,7 +333,7 @@
             else if ((sortType == SORT_PID) && !sortOrderAscending) return [[b objectForKey:@"PID"] compare:[a objectForKey:@"PID"]];
             
             else if ((sortType == SORT_COM) && sortOrderAscending) return [[[a objectForKey:@"COMM"] lowercaseString] compare:[[b objectForKey:@"COMM"] lowercaseString]];
-            else if ((sortType == SORT_COM) && !sortOrderAscending) return [[[b objectForKey:@"COMM"] lowercaseString] compare:[[a objectForKey:@"COMM"]lowercaseString]];
+            else if ((sortType == SORT_COM) && !sortOrderAscending) return [[[b objectForKey:@"COMM"] lowercaseString] compare:[[a objectForKey:@"COMM"] lowercaseString]];
             
             else if ((sortType == SORT_USR) && sortOrderAscending) return [[a objectForKey:@"UID"] compare:[b objectForKey:@"UID"]];
             else if ((sortType == SORT_PID) && !sortOrderAscending) return [[b objectForKey:@"UID"] compare:[a objectForKey:@"UID"]];
@@ -340,20 +352,28 @@
             
             else return [[a objectForKey:@"PID"] compare:[b objectForKey:@"PID"]];
         }];
-        processList = sortedArray;
+        
+        NSIndexPath *index;
+        for (int i = 0; i < processList.count; i++) {
+            NSDictionary *p = [processList objectAtIndex:i];
+            NSInteger pid = [[p objectForKey:@"PID"] intValue];
+            
+            if (pid == selectedPid){
+                index = [NSIndexPath indexPathForRow:i inSection:0];
+                break;
+            }
+        }
         
         dispatch_sync(dispatch_get_main_queue(), ^{
-            NSIndexPath *index = [self.tableView indexPathForSelectedRow];
-            [self.tableView reloadData];
             
+            [self.tableView reloadData];
             [self.tableView selectRowAtIndexPath:index animated:NO scrollPosition:0];
             
-            self.cpuLabel.text = [[eng.sys objectForKey:@"SYS_CPU"] stringValue];
-            self.procLabel.text = [[NSNumber numberWithUnsignedLong:processList.count] stringValue];
-            self.thrLabel.text = [[eng.sys objectForKey:@"TOT_THR"] stringValue];
+            //self.cpuLabel.text = [[eng.sys objectForKey:@"SYS_CPU"] stringValue];
+            //self.procLabel.text = [[NSNumber numberWithUnsignedLong:processList.count] stringValue];
+            //self.thrLabel.text = [[eng.sys objectForKey:@"TOT_THR"] stringValue];
             
             //NSLog(@"Data reloaded");
-            updateTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(refresh) userInfo:nil repeats:NO];
         });
     });
 }

@@ -40,7 +40,7 @@
 }
 
 - (IBAction)closeButton:(UIBarButtonItem *)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    
 }
 
 @end
