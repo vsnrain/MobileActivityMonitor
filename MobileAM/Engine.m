@@ -31,27 +31,31 @@ static UITextView *logView;
     self.sys = [[NSMutableDictionary alloc] init];
     self.mem = [[NSMutableDictionary alloc] init];
     
-    
     //======================================= GET SYSCTL PROCS ===========================================//
     //kern_return_t	kr;
-    int mibname[4] = { CTL_KERN, KERN_PROC, KERN_PROC_ALL, 0};
-    struct kinfo_proc *procs;
-    size_t buffersize = 0;
-    unsigned long count;
-    
-    int err = sysctl(mibname, 4, NULL, &buffersize, NULL, 0);
+    int mib[4] = {CTL_KERN, KERN_PROC, KERN_PROC_ALL, 0};
+    size_t buffersize;
+    int err;
+
+    err = sysctl(mib, 4, NULL, &buffersize, NULL, 0);
     if (err != 0){
+        NSLog(@"sysctl() (FIRST) failed with error: %s", strerror(errno));
         [Engine addToLog:@"sysctl() (FIRST) failed with error"];
         return;
     }
     
+    struct kinfo_proc *procs;
     procs = (struct kinfo_proc *)malloc(buffersize);
-    err = sysctl(mibname, 4, procs, &buffersize, NULL, 0);
+    
+    err = sysctl(mib, 4, procs, &buffersize, NULL, 0);
     if (err != 0) {
+        NSLog(@"sysctl() (SECOND) failed with error: %s", strerror(errno));
         [Engine addToLog:@"sysctl() (SECOND) failed with error"];
         free(procs);
         return;
     }
+    
+    unsigned long count;
     count = buffersize/sizeof(struct kinfo_proc);
     
     float tot_cpu = 0;
@@ -88,7 +92,7 @@ static UITextView *logView;
     
     kr = task_for_pid(mach_task_self(), pid, &machport);
     if (kr != KERN_SUCCESS) {
-        //NSLog(@"task_for_pid() failed with error - %s", (char*)mach_error_string(kr));
+        NSLog(@"task_for_pid() failed with error - %s", (char*)mach_error_string(kr));
         [Engine addToLog:[NSString stringWithFormat:@"task_for_pid() failed with error - %s", (char*)mach_error_string(kr)]];
         return nil;
     }
@@ -99,7 +103,7 @@ static UITextView *logView;
     
     kr = task_info(machport, TASK_BASIC_INFO, (task_info_t)&info, &size);
     if (kr != KERN_SUCCESS) {
-        //NSLog(@"task_info() failed with error - %s", (char*)mach_error_string(kr));
+        NSLog(@"task_info() failed with error - %s", (char*)mach_error_string(kr));
         [Engine addToLog:[NSString stringWithFormat:@"task_info() failed with error - %s", (char*)mach_error_string(kr)]];
         return nil;
     }else{

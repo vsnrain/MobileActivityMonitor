@@ -49,6 +49,7 @@
 		B82947321D05AEDD00D3F146 /* ProcessListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessListCell.m; sourceTree = "<group>"; };
 		B82947331D05AEDD00D3F146 /* ThreadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadCell.m; sourceTree = "<group>"; };
 		B829474A1D05B29900D3F146 /* ProcessListHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessListHeader.xib; sourceTree = "<group>"; };
+		B86CD2921DBBD957005DE64F /* MobileActivityMonitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = MobileActivityMonitor.entitlements; path = ../MobileActivityMonitor.entitlements; sourceTree = "<group>"; };
 		B8950FF91D4AA13E0004B26B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Info.plist; sourceTree = "<group>"; };
 		B8983B981D33AE3100DDCBEA /* ProcessDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessDetail.xib; sourceTree = "<group>"; };
 		B8983B9A1D33AE7200DDCBEA /* ProcessDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessDetailCell.xib; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 			children = (
 				B82947061D05AA6000D3F146 /* MobileAM */,
 				B82947051D05AA6000D3F146 /* Products */,
+				B86CD2931DBBD959005DE64F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +116,7 @@
 		B82947071D05AA6000D3F146 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B86CD2921DBBD957005DE64F /* MobileActivityMonitor.entitlements */,
 				B82947241D05AE8F00D3F146 /* NSTask.h */,
 				B8950FF91D4AA13E0004B26B /* Info.plist */,
 				B82947181D05AA6000D3F146 /* Info-xcode.plist */,
@@ -127,6 +130,13 @@
 			children = (
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B86CD2931DBBD959005DE64F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		B8A48FBD1D39716E00C5D57F /* UI */ = {
@@ -174,6 +184,11 @@
 					B82947031D05AA6000D3F146 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = K8KPM6B64V;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -318,6 +333,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MobileActivityMonitor.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -336,6 +352,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MobileActivityMonitor.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = "XCODE=1";
 				INFOPLIST_FILE = "$(SRCROOT)/MobileAM/Info-xcode.plist";
